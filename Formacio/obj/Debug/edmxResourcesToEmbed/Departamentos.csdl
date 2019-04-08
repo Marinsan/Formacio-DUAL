@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FormacionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="FormacionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="FormacionModel.Clientes" />
+    <EntitySet Name="Departamentos" EntityType="FormacionModel.Departamentos" />
+    <AssociationSet Name="FK_CLIENTE_DEPARTAMENTO" Association="FormacionModel.FK_CLIENTE_DEPARTAMENTO">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="APELLIDO1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="APELLIDO2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_DEPARTAMENTO" Type="Int32" />
+    <NavigationProperty Name="Departamentos" Relationship="FormacionModel.FK_CLIENTE_DEPARTAMENTO" FromRole="Clientes" ToRole="Departamentos" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clientes" Relationship="FormacionModel.FK_CLIENTE_DEPARTAMENTO" FromRole="Departamentos" ToRole="Clientes" />
+  </EntityType>
+  <Association Name="FK_CLIENTE_DEPARTAMENTO">
+    <End Type="FormacionModel.Departamentos" Role="Departamentos" Multiplicity="1" />
+    <End Type="FormacionModel.Clientes" Role="Clientes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
