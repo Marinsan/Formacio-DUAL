@@ -12,12 +12,16 @@ namespace Formacio
     using System;
     using System.Collections.Generic;
     
-    public partial class Departamentos
+    public partial class Telefonos
     {
         public int id { get; set; }
         public string codigo { get; set; }
-        public string descripcion { get; set; }
+        public string imageURL { get; set; }
+        public string name { get; set; }
+        public string snippet { get; set; }
+        public string additionalFeatures { get; set; }
+        public int idSo { get; set; }
     
-        public virtual Clientes Clientes { get; set; }
+        public virtual So So { get; set; }
     }
 }

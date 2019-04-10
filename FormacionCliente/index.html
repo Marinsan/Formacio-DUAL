@@ -64,21 +64,27 @@
     <script type="text/javascript" src="lib/globalize/date.js"></script>
     <script src="lib/core/checkmark.filter.js"></script>
 
+  
 
     <!-- Scripts Propietaris -->
     <script src="js/app.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/data-devextrem/data-grid.js"></script>
-    <script src="js/data-devextrem/data.js"></script>
-    <script src="js/data-devextrem/grid2.js"></script>
-    <script src="js/form/forms.js"></script>
-    <script src="js/map.js"></script>
-    <script src="js/todo/todo.js"></script>
-    <script src="js/todo/todo-dialog.js"></script>
-    <script src="js/Taula-db.js"></script>
-    <script src="js/dialogs-db-treballadors/DialogCreate.js"></script>
-    <script src="js/dialogs-db-treballadors/DialogDelete.js"></script>
-    <script src="js/Customers-db.js"></script>    
+    <script src="js/Navbar/navbar.js"></script>
+    <script src="js/Data-devextrem/data-grid.js"></script>
+    <script src="js/Data-devextrem/data.js"></script>
+    <script src="js/Data-devextrem/grid2.js"></script>
+    <script src="js/Forms/forms.js"></script>
+    <script src="js/Map/map.js"></script>
+    <script src="js/Todo/todo.js"></script>
+    <script src="js/Todo/todo-dialog.js"></script>
+    <script src="js/Taula-db/Taula-db.js"></script>
+    <script src="js/Dialogs-db-treballadors/DialogCreate.js"></script>
+    <script src="js/Dialogs-db-treballadors/DialogDelete.js"></script>
+    <script src="js/Customers/Customers-db.js"></script>
+    <script src="js/Phones/phone-detail/PhoneDetailController.js"></script>
+    <script src="js/Phones/phone-list/PhoneListController.js"></script>
+    
+    <!-- Serveis -->
+    <script src="services/telefonoService.js"></script>
 
     <!-- Autenticacio -->
     <script src="services/authentication/core.js"></script>
@@ -91,10 +97,11 @@
     <script src="lib/moment-with-locales/moment-with-locales.js"></script>
 
     <!-- Login -->
-    <script src="templates/login/loginControler.js"></script>
+    <script src="js/login/loginControler.js"></script>
 
     <!-- Constants -->
     <script src="config/constants.js"></script>
+
 
     <!-- Boto menu i logout -->
     <style>
@@ -108,7 +115,7 @@
 
     <div>
    
-            <nav ng-include="'templates/navbar.html'"></nav>
+            <nav ng-include="'js/Navbar/navbar.html'"></nav>
        
             <div layout layout-align="center center">
           

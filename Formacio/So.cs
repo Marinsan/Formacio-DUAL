@@ -12,12 +12,21 @@ namespace Formacio
     using System;
     using System.Collections.Generic;
     
-    public partial class Departamentos
+    public partial class So
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public So()
+        {
+            this.Telefonos = new HashSet<Telefonos>();
+        }
+    
         public int id { get; set; }
         public string codigo { get; set; }
-        public string descripcion { get; set; }
+        public string tipo { get; set; }
+        public string versionOs { get; set; }
+        public string versionUi { get; set; }
     
-        public virtual Clientes Clientes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Telefonos> Telefonos { get; set; }
     }
 }

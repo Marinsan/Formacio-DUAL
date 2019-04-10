@@ -1,0 +1,49 @@
+﻿<div ng-app="routerApp" ng-controller="mainController">
+    <md-content class="md-padding layout-align-center-center" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column" layout-align="center center" layout-padding>
+            <div class="col-sm-6 col-sm-offset-2">
+
+                <!-- PAGE HEADER -->
+                <div class="text-center"><h1>AngularJS Form Validation</h1></div>
+                <br />
+
+                <!-- FORM -->
+                <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+                    <!-- pass in the variable if our form is valid or invalid -->
+                    <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+                    <!-- NAME -->
+                    <md-input-container class="md-icon-float md-block" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Nom</label>
+                        <md-icon md-svg-src="img/icons/user.svg" class="name"></md-icon>
+                        <input type="text" name="name" class="form-control" ng-model="name" required>
+                        <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">El teu nom es obligatori.</p>
+                    </md-input-container>
+                    <!-- USERNAME -->
+                    <md-input-container class="md-icon-float md-block" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Nom d'usuari</label>
+                        <md-icon md-svg-src="img/icons/user-solid-circle.svg" class="name"></md-icon>
+                        <input type="text" name="username" ng-model="user.username" ng-minlength="3" ng-maxlength="8">
+                        <p ng-show="userForm.username.$error.minlength" class="help-block">Nom d'usuari molt curt.</p>
+                        <p ng-show="userForm.username.$error.maxlength" class="help-block">Nom d'usuari massa llarg.</p>
+                    </md-input-container>
+
+                    <!-- EMAIL -->
+                    <md-input-container class="md-block" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                        <!-- Use floating placeholder instead of label -->
+                        <md-icon md-svg-src="img/icons/at-symbol.svg" class="email"></md-icon>
+                        <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+                        <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Escriu una direcció d'email correcta.</p>
+                    </md-input-container>
+
+                    <!-- SUBMIT BUTTON -->
+                    <section ng-controller="MessageController" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                        <md-button class="md-raised md-primary" ng-disabled="userForm.$invalid" ng-click="showCustomToast()">Enviar</md-button>
+                    </section>
+
+                </form>
+            </div><!-- col-sm-8 -->
+        </div><!-- /container -->
+        </md-content>
+</div>

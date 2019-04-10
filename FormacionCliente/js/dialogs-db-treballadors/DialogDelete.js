@@ -5,7 +5,7 @@
     $scope.showAdvanced_delete_taula = function (ev) {
         $mdDialog.show({
             controller: DialogControllerDeleteEmploye,
-            templateUrl: 'templates/dialogs/dialog-delete.html',
+            templateUrl: 'js/Todo/dialogs/dialog-delete.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true
@@ -35,7 +35,7 @@
                     $mdToast.show({
                         hideDelay: 3000,
                         position: 'top right',
-                        templateUrl: 'templates/snackbar/snackbar-error.html'
+                        templateUrl: 'js/Snackbars/snackbar-error.html'
                     });
                 };
                 $scope.closeToast = function () {

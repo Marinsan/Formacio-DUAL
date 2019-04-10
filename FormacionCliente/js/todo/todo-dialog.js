@@ -7,7 +7,7 @@
         $scope.showAdvanced = function(ev) {
             $mdDialog.show({
                 controller: DialogController,
-                templateUrl: 'templates/dialogs/dialog-todo.html',
+                templateUrl: 'js/Todo/dialogs/dialog-todo.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose:false,

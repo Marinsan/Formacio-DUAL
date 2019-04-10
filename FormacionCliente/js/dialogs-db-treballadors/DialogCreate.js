@@ -20,7 +20,7 @@
     $scope.showAdvanced_create_taula = function (Emp, ev) {
         $mdDialog.show({
             controller: CreateDialogController,
-            templateUrl: 'templates/dialogs/dialog-create.html',
+            templateUrl: 'js/Todo/dialogs/dialog-create.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: false,
