@@ -1,0 +1,9 @@
+﻿<div class="dx-viewport">
+    <div class="demo-container" ng-app="routerApp" ng-controller="GridController2">
+        <div dx-data-grid="gridOptions" dx-item-alias="order">
+            <div data-options="dxTemplate: {name: 'detail'}">
+                <div dx-data-grid="getMasterDetailGridSettings(order.data)"></div>
+            </div>
+        </div>
+    </div>
+</div>

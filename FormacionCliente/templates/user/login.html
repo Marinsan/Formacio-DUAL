@@ -1,0 +1,33 @@
+﻿<div ng-controller="LoginController">
+
+    <div class="contenidor" flex-xs flex-gt-xs="100" layout="column" layout-align="center center" layout-padding>
+        <md-whiteframe class="md-whiteframe-11dp">
+            <div class="col-md-12">
+                <div layout layout-align="center center">
+                    <img src="/app/img/Lockicon.png" width="80" height="80" class="layout-align-center">
+                </div>
+                <form ng-submit="vm.login(loginObj)" name="userForm">
+                    <div class="col-md-4">
+
+                        <md-input-container class="md-icon-float md-block">
+                            <label>Nom d'usuari</label>
+                            <md-icon md-svg-src="img/icons/user.svg" class="name"></md-icon>
+                            <input ng-model="loginObj.username" type="text" required>
+                        </md-input-container>
+
+                        <md-input-container class="md-icon-float md-block">
+                            <label>Contrasenya</label>
+                            <md-icon md-svg-src="img/icons/baseline-vpn_key-24px.svg" class="name"></md-icon>
+                            <input ng-model="loginObj.password" type="password" required>
+                        </md-input-container>
+
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                            <md-button ng-disabled="userForm.$invalid" ng-model="entrar" ng-click="sumbit" type="submit">Entrar</md-button>
+                        </section>
+
+                    </div>
+                </form>
+            </div>
+        </md-whiteframe>
+    </div>
+</div>

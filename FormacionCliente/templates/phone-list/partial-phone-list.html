@@ -1,0 +1,53 @@
+﻿
+
+    <div class="container-fluid Aligner">
+        <div layout="column" layout-align="center center" class="Aligner-item">
+            <div class="form-group navbar-center">
+                <form class="navbar-form" layout="row">
+                    &nbsp;
+                    <md-input-container class="md-icon-float md-block col-md-4">
+                        <label>Cerca el model</label>
+                        <md-icon md-svg-src="img/icons/baseline-search-24px.svg" class="name"></md-icon>
+                        <input ng-model="query" type="text" name="quest" required>
+                    </md-input-container>
+
+                    <md-input-container class="md-block col-md-4">
+                        <label>Ordenar</label>
+                        <md-select name="Ordenar" ng-model="orderProp">
+                            <md-option value="name">Alfabeticament</md-option>
+                            <md-option value="age">Més nou</md-option>
+                        </md-select>
+                    </md-input-container>
+                </form>
+            </div>
+            <!--Body content-->
+                <md-card ng-repeat="phone in phones | filter:query | orderBy:orderProp"
+                         class="phone-list-item">
+                    <md-card-header>
+                       
+                            <md-card-avatar>
+                                <img src="/img/icons/smartphone.png" />
+                            </md-card-avatar>
+                      
+                        <md-card-header-text>
+                            <span class="md-title">AJS Material</span>
+                            <span class="md-subhead">CMarin</span>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <a layout layout-align="center" ui-sref="phone({telefonSeleccionat: phone})">
+                        <img class="md-card-image-2" height="150" width="150" alt="Washed Out" ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
+                    </a>
+                    <md-card-title class="text-center">
+                        <md-card-title layout-align="center center">
+                            <span class="md-title"><a ui-sref="phone({telefonSeleccionat: phone})">{{phone.name}}</a></span>
+                        </md-card-title>
+                    </md-card-title>
+                    <md-card-content>
+                        <p>
+                            {{phone.snippet}}
+                        </p>
+                    </md-card-content>
+                </md-card>
+        
+    </div>
+</div>  

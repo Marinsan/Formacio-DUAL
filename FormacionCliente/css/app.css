@@ -1,0 +1,231 @@
+﻿/* View: Phone detail */
+
+body {
+    background-color: #00ffff;
+}
+
+html {
+
+    background-color: #00ffff;
+}
+
+h1,h2,h4 {
+    text-align: center;
+}
+.phone {
+  display: none;
+  height: 400px;
+  margin-bottom: 2em;
+  margin-right: 3em;
+  padding: 2em;
+  width: 400px;
+}
+
+.phone:first-child {
+  display: block;
+}
+
+.phone-images {
+  float: left;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  width: 450px;
+}
+
+.phone-thumbs {
+  list-style: none;
+  margin: 0;
+}
+
+.phone-thumbs img {
+  height: 100px;
+  padding: 1em;
+  width: 100px;
+}
+
+.phone-thumbs li {
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  display: inline-block;
+  margin: 1em;
+}
+
+
+  .inputdemoIcons .inputIconDemo {
+    min-height: 48px; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
+    color: green; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
+    color: dodgerblue; }
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.email,
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
+    color: red; }
+
+.buttondemoBasicUsage section {
+  background: #f7f7f7;
+  border-radius: 3px;
+  text-align: center;
+  margin: 1em;
+  position: relative !important;
+  padding-bottom: 10px; }
+
+.buttondemoBasicUsage md-content {
+  margin-right: 7px; }
+
+.buttondemoBasicUsage section .md-button {
+  margin-top: 16px;
+  margin-bottom: 16px; }
+
+.buttondemoBasicUsage .label {
+  position: absolute;
+  bottom: 5px;
+  left: 7px;
+  font-size: 14px;
+  opacity: 0.54; }
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+  text-transform: capitalize; }
+
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color:  #00ffff !important; }
+
+.fabSpeedDialdemoBasicUsage p.note {
+  font-size: 1.2rem; }
+
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 200px;
+  min-height: 200px;
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: 70px;
+}
+
+.md-padding {
+    background-color: #00ffff;
+}
+
+.md-card {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dialogdemoThemeInheritance .container {
+  text-align: center; }
+
+.listdemoBasicUsage md-divider {
+  margin-top: 10px;
+  margin-bottom: 0; }
+
+.menu-panel-container {
+  pointer-events: auto;
+  background-color: #00ffff;
+}
+
+.menu-panel {
+  width: 256px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.menu-panel .menu-divider {
+  width: 100%;
+  height: 1px;
+  min-height: 1px;
+  max-height: 1px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background-color: rgba(0, 0, 0, 0.11);
+}
+
+.menu-panel .menu-content {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  max-height: 305px;
+  overflow-y: auto;
+  min-width: 256px;
+}
+
+.menu-panel .menu-item {
+  display: flex;
+  flex-direction: row;
+  min-height: 48px;
+  height: 48px;
+  align-content: center;
+  justify-content: flex-start;
+}
+.menu-panel .menu-item > * {
+  width: 100%;
+  margin: auto 0;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.menu-panel .menu-item > a.md-button {
+  padding-top: 5px;
+}
+.menu-panel .menu-item > .md-button {
+  display: inline-block;
+  border-radius: 0;
+  margin: auto 0;
+  font-size: 15px;
+  text-transform: none;
+  font-weight: 400;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 100%;
+  text-align: left;
+}
+.menu-panel .menu-item > .md-button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+.menu-panel .menu-item > .md-button md-icon {
+  margin: auto 16px auto 0;
+}
+.menu-panel .menu-item > .md-button p {
+  display: inline-block;
+  margin: auto;
+}
+.menu-panel .menu-item > .md-button span {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.menu-panel .menu-item > .md-button .md-ripple-container {
+  border-radius: inherit;
+}
+
+.menu {
+    background-color: #00ffff;
+}
+
+.dx-datagrid .dx-data-row > td.bullet {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.contenidor {
+   position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 50%;
+	height: 30%;
+	margin: auto;
+}
+
+
+.done-true {
+  text-decoration: line-through;
+}
+

@@ -1,0 +1,71 @@
+﻿<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
+    <div ng-controller="TaulaController" ng-init="GetAllData()">
+
+        <div layout layout-align="center center" class="text-center">
+            <pre><h2>Taula Treballadors</h2></pre>
+        </div>
+        <div layout layout-align="center center">
+            <md-button class="md-raised md-primary" ng-controller="CreateEmployeeDialogController" ng-click="showAdvanced_create_taula($event)" >Afegir</md-button>
+        </div>
+        
+        <br />
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Ciutat</th>
+                        <th>Anys</th>
+                        <th>Accions</th>
+                    </tr>
+                </thead>
+               <!-- <div layout="row" layout-sm="column" layout-align="center center">
+                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                </div>-->
+                <tbody ng-repeat="Emp in employees">
+
+                    <tr>
+                        <td>{{Emp.Emp_Id}}</td>
+                        <td>
+                            <span ng-hide="m.EditMode">{{m.Emp_Name}}</span>
+                            {{Emp.Emp_Name}}
+                        </td>
+                        <td>
+                            <span ng-hide="m.EditMode">{{m.Emp_City}}</span>
+                            {{Emp.Emp_City}}
+                        </td>
+                        <td>
+                            <span ng-hide="m.EditMode">{{m.Emp_Age}}</span>
+                            {{Emp.Emp_Age}}
+                        </td>
+                        <td>
+                            <a class="Edit" href="javascript:;" ng-hide="m.EditMode" ng-click="EditEmp($Emp)">Edit</a>
+                            <a class="Update" href="javascript:;" ng-show="m.EditMode" ng-click="UpdateEmp($Emp)">Update</a>
+                             <!-- <md-button class="md-icon-button md-warn" value="Delete" ng-controller="DialogEmployeeDeleteController" ng-click="showAdvanced_delete_taula($event, Emp)">-->
+                                <md-button class="md-icon-button md-warn" value="Delete" ng-click="DeleteEmp(Emp)">
+                                    <md-icon title="Eliminar" md-svg-icon="img/icons/delete.svg"></md-icon>
+                                </md-button>
+                            <md-button ng-click="UpdateEmp(Emp)" class="md-icon-button">
+                                <md-icon title="Editar" md-svg-icon="img/icons/edit.svg"></md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+</div>

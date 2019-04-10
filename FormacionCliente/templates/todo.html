@@ -1,0 +1,31 @@
+﻿<div ng-controller="todoController">
+    <form ng-submit="add(task)">
+        <md-input-container class="md-icon-float md-block">
+            <label>Telefons...</label>
+            <input ng-model="task" type="text">
+            <md-icon title="Eliminar" md-svg-icon="img/icons/note_add.svg" ng-click="add(task)"></md-icon>
+        </md-input-container>
+    </form>
+
+    <div ng-controller="showCtrl">
+        <md-subheader>Telefons a comprar</md-subheader>
+        <span></span>
+        <md-list-item ng-repeat="task in todosBL.tasks">
+            {{ task.content }}
+            <md-button ng-controller="deleteDialog" class="md-icon-button md-warn" ng-click="showAdvanced($event)">
+                <md-icon title="Eliminar" md-svg-icon="img/icons/delete.svg"></md-icon>
+            </md-button>
+            <md-button ng-click="editMode.edit(task)" class="md-icon-button">
+                <md-icon ng-click="toggle()" title="Editar" md-svg-icon="img/icons/edit.svg"></md-icon>
+            </md-button>
+        </md-list-item>
+
+        <form ng-show="editar" ng-submit="editMode.save(editMode.task)">
+            <md-input-container class="md-icon-float md-block">
+                <label></label>
+                <input ng-model="editMode.task.content" type="text">
+                <md-icon title="Eliminar" md-svg-icon="img/icons/check.svg" ng-click="editMode.save(editMode.task)"></md-icon>
+            </md-input-container>
+        </form>
+    </div>
+</div>

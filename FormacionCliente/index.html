@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Phone List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" sizes="64x64">
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="../Content/angular-material.css" />
+    <link rel="stylesheet" href="css/app.animations.css" />
+    <link rel="stylesheet" href="css/app.css" />
+
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-ui-route/angular-ui-router.min.js"></script>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-aria/angular-aria.min.js"></script>
+    <script src="lib/angular-messages/angular-messages.min.js"></script>
+    <script src="lib/angular-locale/ngStorage.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="lib/angular-material/angular-material.min.js"></script>
+
+    <!-- Angular Local Storage -->
+    <script src="lib/angular-local-storage/angular-local-storage.min.js"></script>
+
+    <!-- Angular jwt -->
+    <script src="lib/angular-jwt/angular-jwt.min.js"></script>
+
+    <!-- Moment with locales -->
+    <script src="lib/moment-with-locales/moment-with-locales.js"></script>
+
+    <!-- DevExtreme Datagrid jQuery -->
+    <script type="text/javascript" src="lib/jquery/jquery-3.3.1.min.js"></script>
+
+    <!-- Reference either Knockout or AngularJS, if you do -->
+    <script type="text/javascript" src="lib/knockout/knockout-3.4.2.js"></script>
+
+    <!-- DevExtreme themes -->
+    <link rel="stylesheet" type="text/css" href="../Content/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="../Content/dx.material.orange.light.css" />
+
+    <!-- Material Icons -->
+    <script src="lib/material-icons/angular-material-icons.min.js"></script>
+ 
+    <!-- Google Maps -->
+    <script src="lib/angular-google-maps/ng-map.min.js"></script>
+
+    <!-- DevExtreme library -->
+    <script type="text/javascript" src="lib/devextreme/dx.all.js"></script>
+    <script type="text/javascript" src="lib/cldr/cldr.js"></script>
+    <script type="text/javascript" src="lib/cldr/event.js"></script>
+    <script type="text/javascript" src="lib/cldr/supplemental.js"></script>
+    <script type="text/javascript" src="lib/cldr/unresolved.js"></script>
+    <script type="text/javascript" src="lib/globalize/globalize.js"></script>
+    <script type="text/javascript" src="lib/globalize/message.js"></script>
+    <script type="text/javascript" src="lib/globalize/number.js"></script>
+    <script type="text/javascript" src="lib/globalize/currency.js"></script>
+    <script type="text/javascript" src="lib/globalize/date.js"></script>
+    <script src="lib/core/checkmark.filter.js"></script>
+
+
+    <!-- Scripts Propietaris -->
+    <script src="js/app.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/data-devextrem/data-grid.js"></script>
+    <script src="js/data-devextrem/data.js"></script>
+    <script src="js/data-devextrem/grid2.js"></script>
+    <script src="js/form/forms.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/todo/todo.js"></script>
+    <script src="js/todo/todo-dialog.js"></script>
+    <script src="js/Taula-db.js"></script>
+    <script src="js/dialogs-db-treballadors/DialogCreate.js"></script>
+    <script src="js/dialogs-db-treballadors/DialogDelete.js"></script>
+    <script src="js/Customers-db.js"></script>    
+
+    <!-- Autenticacio -->
+    <script src="services/authentication/core.js"></script>
+    <script src="services/authentication/authentication.service.js"></script>
+    <script src="services/authentication/interceptor.service.js"></script>
+    <script src="services/authentication/token.service.js"></script>
+
+    <script src="lib/angular-jwt/angular-jwt.min.js"></script>
+    <script src="lib/angular-local-storage/angular-local-storage.min.js"></script>
+    <script src="lib/moment-with-locales/moment-with-locales.js"></script>
+
+    <!-- Login -->
+    <script src="templates/login/loginControler.js"></script>
+
+    <!-- Constants -->
+    <script src="config/constants.js"></script>
+
+    <!-- Boto menu i logout -->
+    <style>
+        .navbar {
+            border-radius: 0;
+        }
+    </style>
+
+</head>
+<body ng-app="routerApp">
+
+    <div>
+   
+            <nav ng-include="'templates/navbar.html'"></nav>
+       
+            <div layout layout-align="center center">
+          
+            <div ui-view></div>
+
+        </div>
+    </div> 
+</body>
+</html>

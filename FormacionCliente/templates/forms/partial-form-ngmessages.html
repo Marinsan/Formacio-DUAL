@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Form ngMessages</title>
+
+</head>
+
+<body class="container" ng-app="routerApp" ng-controller="MainCtrl as main">
+
+    <div layout layout-align="center">
+        <md-content class="md-padding layout-align-center-center" layout-xs="column" layout="row">
+            <div class="col-sm-8 col-sm-offset-2" flex-xs flex-gt-xs="50" layout="column" layout-align="center center" layout-padding>
+
+                <div class="text-center"><h1>AngularJS Form Validation with NgMessages</h1></div>
+                <br />
+                <form name="userForm" novalidate>
+
+                    <md-input-container class="md-block" ng-class="{ 'has-error': userForm.name.$touched && userForm.name.$invalid }">
+                        <label>Nom</label>
+                        <md-icon md-svg-src="img/icons/user.svg" class="name"></md-icon>
+                        <input type="text" name="name" class="form-control"
+                               ng-model="main.name"
+                               ng-minlength="5"
+                               ng-maxlength="10"
+                               required>
+
+
+                        <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
+                            <p ng-message="minlength">El teu nom és molt curt.</p>
+                            <p ng-message="maxlength">El teu nom és molt llarg.</p>
+                            <p ng-message="required">El teu nom és obligatori.</p>
+                        </div>
+                    </md-input-container>
+
+
+                    <md-input-container class="md-block" ng-class="{ 'has-error': userForm.email.$touched && userForm.email.$invalid }">
+
+                        <label>Email</label>
+                        <md-icon md-svg-src="img/icons/at-symbol.svg" class="name"></md-icon>
+                        <input type="email" name="email" class="form-control"
+                               ng-model="main.email"
+                               ng-minlength="5"
+                               ng-maxlength="20"
+                               required>
+                        <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+                            <div ng-messages-include="messages.html"></div>
+                        </div>
+                    </md-input-container>
+
+                    <section ng-controller="MessageController" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                        <md-button class="md-raised md-primary" ng-disabled="userForm.$invalid" ng-click="showCustomToast()">Enviar</md-button>
+                    </section>
+
+                </form>
+                <br>
+                <div flex="100">
+                    <h2 class="md-title">Ng Messages</h2>
+                    <code style="display: block; padding: 10px;">userForm.name.$error = {{ userForm.name.$error | json }}</code>
+                </div>
+            </div>
+        </md-content>
+        </div>
+</body>
+
+    </html>

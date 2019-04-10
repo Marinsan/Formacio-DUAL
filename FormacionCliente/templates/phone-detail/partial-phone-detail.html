@@ -1,0 +1,302 @@
+﻿<div layout="column" layout-align="center center" id="show">
+    <h1>{{phone.name}}</h1>
+    <br />
+    <div class="phone-images">
+        <img ng-src="{{img}}" class="phone"
+             ng-class="{selected: img === mainImageUrl}"
+             ng-repeat="img in phone.images" />
+    </div>
+    <ul class="phone-thumbs">
+        <li ng-repeat="img in phone.images">
+            <img ng-src="{{img}}" ng-click="setImage(img)" />
+        </li>
+    </ul>
+    <p>{{phone.description}}</p>
+    <br />
+</div>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+
+        <md-content>
+
+            <md-list class="md-dense" flex>
+
+                <md-subheader class="md-no-sticky">Availability and Networks</md-subheader>
+                <md-list-item class="md-2-line">
+                    <img src="/img/icons/baseline-network_cell-24px.svg?20" class="md-avatar" />
+                    <div class="md-list-item-text">
+                        <h3>Availability</h3>
+                        <p ng-repeat="availability in phone.availability">{{availability}}</p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+
+
+
+                <md-subheader class="md-no-sticky">Battery</md-subheader>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/battery.svg" class="md-avatar" alt="{{todos[0].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Type</h3>
+                        <p>
+                            {{phone.battery.type}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-phone_in_talk-24px.svg?25" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Talk Time</h3>
+                        <p>
+                            {{phone.battery.talkTime}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-phone_locked-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Standby time (max)</h3>
+                        <p>
+                            {{phone.battery.standbyTime}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+
+                <md-subheader class="md-no-sticky">Storage and Memory</md-subheader>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/random-access-memory.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>RAM</h3>
+                        <p>
+                            {{phone.storage.ram}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-sd_storage-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Internal Storage</h3>
+                        <p>
+                            {{phone.storage.flash}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+
+                <md-subheader class="md-no-sticky">Size and Weight</md-subheader>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/resize.svg" class="md-avatar" />
+                    <div class="md-list-item-text">
+                        <h3>Dimensions</h3>
+                        <p ng-repeat="dim in phone.sizeAndWeight.dimensions">
+                            {{dim}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/weight-tool.svg?25" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Weight</h3>
+                        <p>
+                            {{phone.sizeAndWeight.weight}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+
+                <md-subheader class="md-no-sticky">Connectivity</md-subheader>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-network_cell-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Network Support</h3>
+                        <p>
+                            {{phone.connectivity.cell}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-wifi-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>WiFi</h3>
+                        <p>
+                            {{phone.connectivity.wifi}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-bluetooth-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Bluetooth</h3>
+                        <p>
+                            {{phone.connectivity.wifi}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-wifi-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>WiFi</h3>
+                        <p>
+                            {{phone.connectivity.infrared | checkmark}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-gps_fixed-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>GPS</h3>
+                        <p>
+                            {{phone.connectivity.gps | checkmark}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+            </md-list>
+        </md-content>
+        </div>
+  
+    &nbsp;
+    <div flex-xs flex-gt-xs="50" layout="column">
+
+
+        <md-content>
+
+            <md-list class="md-dense" flex>
+                <md-subheader class="md-no-sticky">Android</md-subheader>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-android-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>OS Version</h3>
+                        <p>
+                            {{phone.android.os}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/mobile-app.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>UI</h3>
+                        <p>
+                            {{phone.android.ui}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+
+                <md-subheader class="md-no-sticky">Display</md-subheader>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-aspect_ratio-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Screen size</h3>
+                        <p>
+                            {{phone.display.screenSize}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-aspect_ratio-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Screen resolution</h3>
+                        <p>
+                            {{phone.display.screenResolution}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/finger-touching-tablet-screen.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Touch screen</h3>
+                        <p>
+                            {{phone.display.touchScreen | checkmark}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+
+                <md-subheader class="md-no-sticky">Hardware</md-subheader>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/processor.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>CPU</h3>
+                        <p>
+                            {{phone.hardware.cpu}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-usb-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>USB</h3>
+                        <p>
+                            {{phone.hardware.usb}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-audiotrack-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Audio / headphone jack</h3>
+                        <p>
+                            {{phone.hardware.audioJack}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-radio-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>FM Radio</h3>
+                        <p>
+                            {{phone.hardware.fmRadio | checkmark}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/accelerometer.png" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Accelerometer</h3>
+                        <p>
+                            {{phone.hardware.accelerometer | checkmark}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+
+                <md-subheader class="md-no-sticky">Camera</md-subheader>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-camera_alt-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Primary</h3>
+                        <p>
+                            {{phone.camera.primary}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-settings-20px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Features</h3>
+                        <p>
+                            {{phone.camera.features.join(', ')}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+
+                <md-subheader class="md-no-sticky">Additional Features</md-subheader>
+                <md-list-item class="md-3-line md-long-text">
+                    <img src="/img/icons/baseline-phonelink_setup-24px.svg" class="md-avatar" alt="{{todos[1].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Features</h3>
+                        <p>
+                            {{phone.additionalFeatures}}
+                        </p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+
+            </md-list>
+        </md-content>
+        </div>
+</md-content>

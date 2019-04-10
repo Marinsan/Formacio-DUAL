@@ -1,0 +1,77 @@
+﻿
+<div class="form-horizontal" role="form" ng-controller="TaulaController">
+
+<form name="userForm" novalidate>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Afegir Treballador</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon md-svg-src="img/icons/close.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-input-container class="md-block" ng-class="{ 'has-error': userForm.EmpName.$touched && userForm.EmpName.$invalid }">
+        <label>Nom</label>
+        <md-icon md-svg-src="img/icons/user.svg" class="name"></md-icon>
+        <input type="text" name="name" class="form-control"
+               ng-model="EmpName"
+               ng-minlength="5"
+               ng-maxlength="10"
+               required>
+
+
+        <div class="help-block" ng-messages="userForm.EmpName.$error" ng-if="userForm.EmpName.$touched">
+            <p ng-message="minlength">El teu nom és molt curt.</p>
+            <p ng-message="maxlength">El teu nom és molt llarg.</p>
+            <p ng-message="required">El teu nom és obligatori.</p>
+        </div>
+    </md-input-container>
+
+
+    <md-input-container class="md-block" ng-class="{ 'has-error': userForm.EmpCity.$touched && userForm.EmpCity.$invalid }">
+
+        <label>Ciutat</label>
+        <md-icon md-svg-src="img/icons/at-symbol.svg" class="name"></md-icon>
+        <input type="text" name="ciutat" class="form-control"
+               ng-model="EmpCity"
+               ng-minlength="3"
+               ng-maxlength="20"
+               required>
+        <div class="help-block" ng-messages="userForm.EmpCity.$error" ng-if="userForm.EmpCity.$touched">
+            <p ng-message="minlength">El teu nom és molt curt.</p>
+            <p ng-message="maxlength">El teu nom és molt llarg.</p>
+            <p ng-message="required">El teu nom és obligatori.</p>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block" ng-class="{ 'has-error': userForm.EmpAge.$touched && userForm.EmpAge.$invalid }">
+        <label>Anys</label>
+        <md-icon md-svg-src="img/icons/user.svg" class="name"></md-icon>
+        <input type="text" name="name" class="form-control"
+               ng-model="EmpAge"
+               ng-minlength="2"
+               ng-maxlength="2"
+               required>
+
+
+        <div class="help-block" ng-messages="userForm.EmpAge.$error" ng-if="userForm.EmpAge.$touched">
+            <p ng-message="minlength">Anys incorrectes.</p>
+            <p ng-message="maxlength">Tens massa anys.</p>
+            <p ng-message="required">El camp anys és obligatori.</p>
+        </div>
+    </md-input-container>
+
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()">
+            Cancelar
+        </md-button>
+        <md-button class="md-raised md-primary" id="btnSave" ng-disabled="userForm.$invalid" value="Submit" ng-click="InsertData()">
+            Afegir
+        </md-button>
+    </md-dialog-actions>
+
+</form>
+<br />
+</div>

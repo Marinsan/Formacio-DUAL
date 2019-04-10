@@ -1,0 +1,43 @@
+﻿<md-content class="md-padding layout-align-center-center" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="95" layout="column" layout-align="center center" layout-padding>
+            <br />
+            <md-whiteframe class="md-whiteframe-24dp" layout layout-align="center center">
+                <div class="dx-viewport">
+                    <div class="demo-container" ng-app="routerApp" ng-controller="GridController">
+                        <div id="gridContainer" dx-data-grid="dataGridOptions" dx-item-alias="discount">
+                            <div data-options="dxTemplate:{ name:'discountCellTemplate' }">
+                                <div class="chart-cell">
+                                    <div dx-bullet="{
+                        onIncidentOccurred: null,
+                        size: {
+                            width: 150,
+                            height: 35
+                        },
+                        margin: {
+                            top: 5,
+                            bottom: 0,
+                            left: 5
+                        },
+                        showTarget: false,
+                        showZeroLevel: true,
+                        value: discount.value * 100,
+                        startScaleValue: 0,
+                        endScaleValue: 100,
+                        tooltip: {
+                            enabled: true,
+                            font: {
+                                size: 18
+                            },
+                            paddingTopBottom: 2,
+                            customizeTooltip: customizeTooltip,
+                            zIndex: 5
+                        }
+                    }"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </md-whiteframe>
+        </div>
+    </md-content>
