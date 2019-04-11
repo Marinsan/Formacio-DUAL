@@ -30,5 +30,6 @@ namespace Formacio
         public virtual DbSet<So> So { get; set; }
         public virtual DbSet<Telefonos> Telefonos { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Connectivity> Connectivity { get; set; }
     }
 }

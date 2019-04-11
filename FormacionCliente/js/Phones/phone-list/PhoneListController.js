@@ -3,15 +3,16 @@
 
     angular.module('routerApp')
         .controller('PhoneListController',
-        ['$scope', '$stateParams', 'PhonesService',
-            function ($scope, $stateParams, PhonesService) {
+        ['$scope', '$stateParams', 'TelefonoService',
+            function ($scope, $stateParams, TelefonoService) {
 
 
                 // Controlador llista telefons
 
-                PhonesService.getTelefonos()
+                TelefonoService.getTelefonos()
                     .then(function (data) {
                         $scope.phones = data;
+                        
                     },
                           function (error) {
                               alert("Error obteniendo los telefonos.")

@@ -21,7 +21,14 @@ namespace Formacio
         public string snippet { get; set; }
         public string additionalFeatures { get; set; }
         public int idSo { get; set; }
+        public string description { get; set; }
+        public string storage_ram { get; set; }
+        public string storage_flash { get; set; }
+        public string size { get; set; }
+        public string weight { get; set; }
+        public Nullable<int> idConnectivity { get; set; }
     
         public virtual So So { get; set; }
+        public virtual Connectivity Connectivity { get; set; }
     }
 }

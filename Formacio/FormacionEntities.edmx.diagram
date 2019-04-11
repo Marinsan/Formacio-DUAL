@@ -12,6 +12,8 @@
         <EntityTypeShape EntityType="FormacionModel.Telefonos" Width="1.5" PointX="3" PointY="5" />
         <EntityTypeShape EntityType="FormacionModel.Usuarios" Width="1.5" PointX="5.75" PointY="0.75" />
         <AssociationConnector Association="FormacionModel.FK_Telefonos_So" />
+        <EntityTypeShape EntityType="FormacionModel.Connectivity" Width="1.5" PointX="5.375" PointY="7" />
+        <AssociationConnector Association="FormacionModel.FK_Telefonos_Connectivity" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

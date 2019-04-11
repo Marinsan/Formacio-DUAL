@@ -35,6 +35,11 @@
     <EntitySetMapping Name="Telefonos">
       <EntityTypeMapping TypeName="FormacionModel.Telefonos">
         <MappingFragment StoreEntitySet="Telefonos">
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="storage_flash" ColumnName="storage_flash" />
+          <ScalarProperty Name="storage_ram" ColumnName="storage_ram" />
+          <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="idSo" ColumnName="idSo" />
           <ScalarProperty Name="additionalFeatures" ColumnName="additionalFeatures" />
           <ScalarProperty Name="snippet" ColumnName="snippet" />

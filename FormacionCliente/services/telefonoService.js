@@ -1,63 +1,84 @@
 ﻿(function () {
     'use strict';
 
-    /**
-    * @ngdoc factory
-    * @name app.PhonesService
-    * 
-    * @description
-    * Simula una api de phones, retorna json de la carpeta "assets/json/".
-    *
-    * @example
-    * <pre>PhonesService.getAll()
-    * .then(succesFn())
-    * .catch(errorFn());
-    * <pre>
-    **/
-    angular
-    .module('routerApp')
-    .factory('PhonesService', PhonesService);
+    angular.module('routerApp')
 
-    PhonesService.$inject = ['$http', '$q', 'SERVER_API_URL'];
+        .factory('TelefonoService', ['$http', '$q', 'SERVER_API_URL', function ($http, $q, SERVER_API_URL) {
+      
+            var _getTelefonos = function () {
 
-    function PhonesService($http, $q, SERVER_API_URL) {
-        var service = {
-            getAll: _getAll,
-            getPhone: _getPhone,
-        };
+                var defered = $q.defer();
+                var promise = defered.promise;
 
-        return service;
+                $http({
+                    method: 'GET',
+                    url: SERVER_API_URL + '/api/telefono/telefonos',
+                    cache: true
+                   
+                }).then(function successCallback(response) {
+
+                    defered.resolve(response.data);
+                    //console.log("data: ", response.data[0].so.versionSo)
+
+                }, function errorCallback(response) {
+                    defered.reject(response);
+                });
+
+                return promise;
+
+            };
+
+            var _getTelefono = function (codigo) {
+
+                var defered = $q.defer();
+                var promise = defered.promise;
+
+                $http({
+                    method: 'GET',
+                    url: SERVER_API_URL + '/api/telefono/' + codigo,
+                    cache: true
 
 
-        function _getPhone(id) {
-            var defered = $q.defer();
-            var promise = defered.promise;
+                }).then(function successCallback(response) {
 
-            $http.get('assets/json/phones/' + id + '.json')
-            .then(function (response) {
-                defered.resolve(response.data);
-            })
-            .catch(function (err) {
-                defered.reject(err)
-            });
+                    defered.resolve(response.data);
 
-            return promise;
-        }
+                }, function errorCallback(response) {
+                    defered.reject(response);
+                });
 
-        function _getAll() {
+                return promise;
 
-            var defered = $q.defer();
-            var promise = defered.promise;
+            };
 
-            $http.get(SERVER_API_URL + 'api/telefonos')
-            .then(function (response) {
-                defered.resolve(response.data);
-            })
-            .catch(function (err) {
-                defered.reject(err)
-            });
+            return {
 
-            return promise;
-        }
-    }
+                getTelefonos: function () {
+
+                    var defered = $q.defer();
+                    var promise = defered.promise;
+
+                    _getTelefonos().then(function (telefonos) {
+                        defered.resolve(telefonos);
+                    }, function (error) {
+                    });
+
+                    return promise;
+                },
+
+                getTelefono: function (codigo) {
+
+                    var defered = $q.defer();
+                    var promise = defered.promise;
+
+                    _getTelefono(codigo).then(function (telefonos) {
+                        defered.resolve(telefonos);
+                    }, function (error) {
+                    });
+
+                    return promise;
+                }
+            }
+
+        }])
 })();

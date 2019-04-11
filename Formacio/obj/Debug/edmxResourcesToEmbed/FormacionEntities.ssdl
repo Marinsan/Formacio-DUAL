@@ -39,6 +39,11 @@
     <Property Name="snippet" Type="nvarchar" MaxLength="250" />
     <Property Name="additionalFeatures" Type="nvarchar" MaxLength="250" />
     <Property Name="idSo" Type="int" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="500" />
+    <Property Name="storage_ram" Type="nvarchar" MaxLength="50" />
+    <Property Name="storage_flash" Type="nvarchar" MaxLength="50" />
+    <Property Name="size" Type="nvarchar" MaxLength="50" />
+    <Property Name="weight" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>

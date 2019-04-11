@@ -232,6 +232,9 @@
     <Compile Include="Clientes.cs">
       <DependentUpon>FormacionEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Connectivity.cs">
+      <DependentUpon>FormacionEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\PrimarioController.cs" />
     <Compile Include="Controllers\TelefonoController.cs" />
     <Compile Include="Departamentos.cs">

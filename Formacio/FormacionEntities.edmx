@@ -15,6 +15,18 @@
           <Property Name="APELLIDO2" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_DEPARTAMENTO" Type="int" />
         </EntityType>
+        <EntityType Name="Connectivity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="50" />
+          <Property Name="bluetooth" Type="nvarchar" MaxLength="50" />
+          <Property Name="cell" Type="nvarchar" MaxLength="50" />
+          <Property Name="gps" Type="bit" />
+          <Property Name="infrared" Type="bit" />
+          <Property Name="wifi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Departamentos">
           <Key>
             <PropertyRef Name="id" />
@@ -44,6 +56,12 @@
           <Property Name="snippet" Type="nvarchar" MaxLength="250" />
           <Property Name="additionalFeatures" Type="nvarchar" MaxLength="250" />
           <Property Name="idSo" Type="int" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="500" />
+          <Property Name="storage_ram" Type="nvarchar" MaxLength="50" />
+          <Property Name="storage_flash" Type="nvarchar" MaxLength="50" />
+          <Property Name="size" Type="nvarchar" MaxLength="50" />
+          <Property Name="weight" Type="nvarchar" MaxLength="50" />
+          <Property Name="idConnectivity" Type="int" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -81,6 +99,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Telefonos_Connectivity">
+          <End Role="Connectivity" Type="Self.Connectivity" Multiplicity="0..1" />
+          <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Connectivity">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Telefonos">
+              <PropertyRef Name="idConnectivity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Telefonos_So">
           <End Role="So" Type="Self.So" Multiplicity="1" />
           <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
@@ -95,6 +125,7 @@
         </Association>
         <EntityContainer Name="FormacionModelStoreContainer">
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Connectivity" EntityType="Self.Connectivity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="So" EntityType="Self.So" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="dbo" store:Type="Tables" />
@@ -102,6 +133,10 @@
           <AssociationSet Name="FK_CLIENTE_DEPARTAMENTO" Association="Self.FK_CLIENTE_DEPARTAMENTO">
             <End Role="Departamentos" EntitySet="Departamentos" />
             <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefonos_Connectivity" Association="Self.FK_Telefonos_Connectivity">
+            <End Role="Connectivity" EntitySet="Connectivity" />
+            <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
           <AssociationSet Name="FK_Telefonos_So" Association="Self.FK_Telefonos_So">
             <End Role="So" EntitySet="So" />
@@ -124,6 +159,11 @@
           <EntitySet Name="Usuarios" EntityType="FormacionModel.Usuarios" />
           <AssociationSet Name="FK_Telefonos_So" Association="FormacionModel.FK_Telefonos_So">
             <End Role="So" EntitySet="So" />
+            <End Role="Telefonos" EntitySet="Telefonos" />
+          </AssociationSet>
+          <EntitySet Name="Connectivity" EntityType="FormacionModel.Connectivity" />
+          <AssociationSet Name="FK_Telefonos_Connectivity" Association="FormacionModel.FK_Telefonos_Connectivity">
+            <End Role="Connectivity" EntitySet="Connectivity" />
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
         </EntityContainer>
@@ -182,6 +222,13 @@
           <Property Name="additionalFeatures" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="idSo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="So" Relationship="FormacionModel.FK_Telefonos_So" FromRole="Telefonos" ToRole="So" />
+          <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="storage_ram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="storage_flash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idConnectivity" Type="Int32" />
+          <NavigationProperty Name="Connectivity" Relationship="FormacionModel.FK_Telefonos_Connectivity" FromRole="Telefonos" ToRole="Connectivity" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -216,6 +263,31 @@
             </Principal>
             <Dependent Role="Telefonos">
               <PropertyRef Name="idSo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Connectivity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bluetooth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gps" Type="Boolean" />
+          <Property Name="infrared" Type="Boolean" />
+          <Property Name="wifi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Telefonos" Relationship="FormacionModel.FK_Telefonos_Connectivity" FromRole="Connectivity" ToRole="Telefonos" />
+        </EntityType>
+        <Association Name="FK_Telefonos_Connectivity">
+          <End Type="FormacionModel.Connectivity" Role="Connectivity" Multiplicity="0..1" />
+          <End Type="FormacionModel.Telefonos" Role="Telefonos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Connectivity">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Telefonos">
+              <PropertyRef Name="idConnectivity" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -259,6 +331,12 @@
           <EntitySetMapping Name="Telefonos">
             <EntityTypeMapping TypeName="FormacionModel.Telefonos">
               <MappingFragment StoreEntitySet="Telefonos">
+                <ScalarProperty Name="idConnectivity" ColumnName="idConnectivity" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="storage_flash" ColumnName="storage_flash" />
+                <ScalarProperty Name="storage_ram" ColumnName="storage_ram" />
+                <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="idSo" ColumnName="idSo" />
                 <ScalarProperty Name="additionalFeatures" ColumnName="additionalFeatures" />
                 <ScalarProperty Name="snippet" ColumnName="snippet" />
@@ -291,6 +369,19 @@
                 <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Connectivity">
+            <EntityTypeMapping TypeName="FormacionModel.Connectivity">
+              <MappingFragment StoreEntitySet="Connectivity">
+                <ScalarProperty Name="wifi" ColumnName="wifi" />
+                <ScalarProperty Name="infrared" ColumnName="infrared" />
+                <ScalarProperty Name="gps" ColumnName="gps" />
+                <ScalarProperty Name="cell" ColumnName="cell" />
+                <ScalarProperty Name="bluetooth" ColumnName="bluetooth" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

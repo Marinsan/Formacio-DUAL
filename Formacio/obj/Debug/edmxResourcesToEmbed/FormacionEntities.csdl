@@ -70,6 +70,11 @@
     <Property Name="additionalFeatures" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="idSo" Type="Int32" Nullable="false" />
     <NavigationProperty Name="So" Relationship="FormacionModel.FK_Telefonos_So" FromRole="Telefonos" ToRole="So" />
+    <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="storage_ram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="storage_flash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>

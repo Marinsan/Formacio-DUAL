@@ -70,7 +70,7 @@
                     <div class="md-list-item-text">
                         <h3>RAM</h3>
                         <p>
-                            {{phone.storage.ram}}
+                            {{phone.storage_ram}}
                         </p>
                     </div>
                 </md-list-item>
@@ -79,7 +79,7 @@
                     <div class="md-list-item-text">
                         <h3>Internal Storage</h3>
                         <p>
-                            {{phone.storage.flash}}
+                            {{phone.storage_flash}}
                         </p>
                     </div>
                 </md-list-item>
@@ -90,8 +90,8 @@
                     <img src="/img/icons/resize.svg" class="md-avatar" />
                     <div class="md-list-item-text">
                         <h3>Dimensions</h3>
-                        <p ng-repeat="dim in phone.sizeAndWeight.dimensions">
-                            {{dim}}
+                        <p>
+                            {{phone.size}}
                         </p>
                     </div>
                 </md-list-item>
@@ -100,7 +100,7 @@
                     <div class="md-list-item-text">
                         <h3>Weight</h3>
                         <p>
-                            {{phone.sizeAndWeight.weight}}
+                            {{phone.weight}}
                         </p>
                     </div>
                 </md-list-item>
@@ -170,7 +170,7 @@
                     <div class="md-list-item-text">
                         <h3>OS Version</h3>
                         <p>
-                            {{phone.android.os}}
+                            {{phone.so.versionOs}}
                         </p>
                     </div>
                 </md-list-item>
@@ -179,7 +179,7 @@
                     <div class="md-list-item-text">
                         <h3>UI</h3>
                         <p>
-                            {{phone.android.ui}}
+                            {{phone.so.versionUi}}
                         </p>
                     </div>
                 </md-list-item>
