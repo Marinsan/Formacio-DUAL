@@ -10,6 +10,18 @@
     <Property Name="APELLIDO2" Type="nvarchar" MaxLength="50" />
     <Property Name="ID_DEPARTAMENTO" Type="int" />
   </EntityType>
+  <EntityType Name="Connectivity">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="nvarchar" MaxLength="50" />
+    <Property Name="bluetooth" Type="nvarchar" MaxLength="50" />
+    <Property Name="cell" Type="nvarchar" MaxLength="250" />
+    <Property Name="gps" Type="bit" />
+    <Property Name="infrared" Type="bit" />
+    <Property Name="wifi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Departamentos">
     <Key>
       <PropertyRef Name="id" />
@@ -44,6 +56,15 @@
     <Property Name="storage_flash" Type="nvarchar" MaxLength="50" />
     <Property Name="size" Type="nvarchar" MaxLength="50" />
     <Property Name="weight" Type="nvarchar" MaxLength="50" />
+    <Property Name="idConnectivity" Type="int" />
+    <Property Name="battery_standbyTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="battery_talkTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="battery_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="camera_primary" Type="nvarchar" MaxLength="50" />
+    <Property Name="camera_features" Type="nvarchar" MaxLength="50" />
+    <Property Name="screenResolution" Type="nvarchar" MaxLength="50" />
+    <Property Name="screenSize" Type="nvarchar" MaxLength="50" />
+    <Property Name="touchScreen" Type="bit" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -81,6 +102,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Telefonos_Connectivity">
+    <End Role="Connectivity" Type="Self.Connectivity" Multiplicity="0..1" />
+    <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Connectivity">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Telefonos">
+        <PropertyRef Name="idConnectivity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Telefonos_So">
     <End Role="So" Type="Self.So" Multiplicity="1" />
     <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
@@ -95,6 +128,7 @@
   </Association>
   <EntityContainer Name="FormacionModelStoreContainer">
     <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Connectivity" EntityType="Self.Connectivity" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="So" EntityType="Self.So" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="dbo" store:Type="Tables" />
@@ -102,6 +136,10 @@
     <AssociationSet Name="FK_CLIENTE_DEPARTAMENTO" Association="Self.FK_CLIENTE_DEPARTAMENTO">
       <End Role="Departamentos" EntitySet="Departamentos" />
       <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefonos_Connectivity" Association="Self.FK_Telefonos_Connectivity">
+      <End Role="Connectivity" EntitySet="Connectivity" />
+      <End Role="Telefonos" EntitySet="Telefonos" />
     </AssociationSet>
     <AssociationSet Name="FK_Telefonos_So" Association="Self.FK_Telefonos_So">
       <End Role="So" EntitySet="So" />

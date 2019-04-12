@@ -27,8 +27,18 @@ namespace Formacio
         public string size { get; set; }
         public string weight { get; set; }
         public Nullable<int> idConnectivity { get; set; }
+        public string battery_standbyTime { get; set; }
+        public string battery_talkTime { get; set; }
+        public string battery_type { get; set; }
+        public string camera_primary { get; set; }
+        public string camera_features { get; set; }
+        public string screenResolution { get; set; }
+        public string screenSize { get; set; }
+        public Nullable<bool> touchScreen { get; set; }
+        public Nullable<int> idHardware { get; set; }
     
         public virtual So So { get; set; }
         public virtual Connectivity Connectivity { get; set; }
+        public virtual Hardware Hardware { get; set; }
     }
 }

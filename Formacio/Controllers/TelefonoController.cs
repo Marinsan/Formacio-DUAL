@@ -25,22 +25,10 @@ namespace Formacio.Controllers
 
                 foreach ( Telefonos tm in entity.Telefonos.ToList())
                 {
-                    result.Add(new Beans.TelefonoBean(
-                        tm.id, 
-                        tm.codigo, 
-                        tm.imageURL, 
-                        tm.name, 
-                        tm.snippet,
-                        tm.description,
-                        tm.storage_ram,
-                        tm.storage_flash,
-                        tm.size,
-                        tm.weight,
-                        new Beans.So( tm.So.id, tm.So.codigo, tm.So.tipo, tm.So.versionOs, tm.So.versionUi
-                            ),
-                        new Beans.Connectivity( tm.Connectivity.id, tm.Connectivity.codigo, tm.Connectivity.bluetooth,
-                                                tm.Connectivity.cell, tm.Connectivity.infrared, tm.Connectivity.wifi,
-                                                tm.Connectivity.gps)));
+
+                    result.Add(tm.toBean());
+
+                    
                 }
 
                 return Ok(result);

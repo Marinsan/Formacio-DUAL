@@ -8,18 +8,31 @@ namespace Formacio.Beans
     public class TelefonoBean
     {
 
-        public int? id                  { get; set; }
-        public String codigo            { get; set; }
-        public String ImageUrl          { get; set; }
-        public String name              { get; set; }
-        public String snippet           { get; set; }
-        public String description       { get; set; }
-        public String storage_ram       { get; set; }
-        public String storage_flash     { get; set; }
-        public String size              { get; set; }
-        public String weight            { get; set; }
+        public int? id                          { get; set; }
+        public String codigo                    { get; set; }
+        public String ImageUrl                  { get; set; }
+        public String name                      { get; set; }
+        public String snippet                   { get; set; }
+        public String description               { get; set; }
+        public String storage_ram               { get; set; }
+        public String storage_flash             { get; set; }
+        public String size                      { get; set; }
+        public String weight                    { get; set; }
+        public String screenSize                { get; set; }
+        public String screenResolution          { get; set; }
+        public Boolean? touchScreen             { get; set; }
+        public String camera_primary            { get; set; }
+        public String camera_features           { get; set; }
+        public String battery_type              { get; set; }
+        public String battery_talkTime          { get; set; }
+        public String battery_standbyTime       { get; set; }
+
 
         public virtual So so { get; set; }
+
+        public virtual Connectivity connectivity { get; set; }
+
+        public TelefonoBean() { }
 
         public TelefonoBean(int? id,
                             String codigo, 
@@ -31,19 +44,37 @@ namespace Formacio.Beans
                             String storage_flash,
                             String size,
                             String weight,
-                            So so)
+                            String screenSize,
+                            String screenResolution,
+                            Boolean? touchScreen,
+                            String camera_primary,
+                            String camera_features,
+                            String battery_type,
+                            String battery_talkTime,
+                            String battery_standbyTime,
+                            So so,
+                            Connectivity connectivity)
         {
-            this.id                 = id;
-            this.codigo             = codigo;
-            this.ImageUrl           = ImageUrl;
-            this.name               = name;
-            this.snippet            = snippet;
-            this.description        = description;
-            this.storage_ram        = storage_ram;
-            this.storage_flash      = storage_flash;
-            this.size               = size;
-            this.weight             = weight;
-            this.so                 = so;
+            this.id                         = id;
+            this.codigo                     = codigo;
+            this.ImageUrl                   = ImageUrl;
+            this.name                       = name;
+            this.snippet                    = snippet;
+            this.description                = description;
+            this.storage_ram                = storage_ram;
+            this.storage_flash              = storage_flash;
+            this.size                       = size;
+            this.weight                     = weight;
+            this.screenSize                 = screenSize;
+            this.screenResolution           = screenResolution;
+            this.touchScreen                = touchScreen;
+            this.camera_primary             = camera_primary;
+            this.camera_features            = camera_features;
+            this.battery_type               = battery_type;
+            this.battery_talkTime           = battery_talkTime;
+            this.battery_standbyTime        = battery_standbyTime;
+            this.so                         = so;
+            this.connectivity               = connectivity;
 
         }
             
@@ -57,8 +88,8 @@ namespace Formacio.Beans
         public int? id              { get; set; }
         public String codigo        { get; set; }
         public String tipo          { get; set; }
-        public String versionOs      { get; set; }
-        public String versionUi      { get; set; }
+        public String versionOs     { get; set; }
+        public String versionUi     { get; set; }
 
         public So() { }
 

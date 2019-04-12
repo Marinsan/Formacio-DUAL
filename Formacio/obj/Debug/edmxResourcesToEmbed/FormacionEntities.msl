@@ -35,6 +35,15 @@
     <EntitySetMapping Name="Telefonos">
       <EntityTypeMapping TypeName="FormacionModel.Telefonos">
         <MappingFragment StoreEntitySet="Telefonos">
+          <ScalarProperty Name="touchScreen" ColumnName="touchScreen" />
+          <ScalarProperty Name="screenSize" ColumnName="screenSize" />
+          <ScalarProperty Name="screenResolution" ColumnName="screenResolution" />
+          <ScalarProperty Name="camera_features" ColumnName="camera_features" />
+          <ScalarProperty Name="camera_primary" ColumnName="camera_primary" />
+          <ScalarProperty Name="battery_type" ColumnName="battery_type" />
+          <ScalarProperty Name="battery_talkTime" ColumnName="battery_talkTime" />
+          <ScalarProperty Name="battery_standbyTime" ColumnName="battery_standbyTime" />
+          <ScalarProperty Name="idConnectivity" ColumnName="idConnectivity" />
           <ScalarProperty Name="weight" ColumnName="weight" />
           <ScalarProperty Name="size" ColumnName="size" />
           <ScalarProperty Name="storage_flash" ColumnName="storage_flash" />
@@ -72,6 +81,19 @@
           <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Connectivity">
+      <EntityTypeMapping TypeName="FormacionModel.Connectivity">
+        <MappingFragment StoreEntitySet="Connectivity">
+          <ScalarProperty Name="wifi" ColumnName="wifi" />
+          <ScalarProperty Name="infrared" ColumnName="infrared" />
+          <ScalarProperty Name="gps" ColumnName="gps" />
+          <ScalarProperty Name="cell" ColumnName="cell" />
+          <ScalarProperty Name="bluetooth" ColumnName="bluetooth" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

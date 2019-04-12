@@ -14,6 +14,8 @@
         <AssociationConnector Association="FormacionModel.FK_Telefonos_So" />
         <EntityTypeShape EntityType="FormacionModel.Connectivity" Width="1.5" PointX="5.375" PointY="7" />
         <AssociationConnector Association="FormacionModel.FK_Telefonos_Connectivity" />
+        <EntityTypeShape EntityType="FormacionModel.Hardware" Width="1.5" PointX="7.375" PointY="7" />
+        <AssociationConnector Association="FormacionModel.FK_Telefonos_Hardware" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -40,7 +40,7 @@
                     <div class="md-list-item-text">
                         <h3>Type</h3>
                         <p>
-                            {{phone.battery.type}}
+                            {{phone.battery_type}}
                         </p>
                     </div>
                 </md-list-item>
@@ -49,7 +49,7 @@
                     <div class="md-list-item-text">
                         <h3>Talk Time</h3>
                         <p>
-                            {{phone.battery.talkTime}}
+                            {{phone.battery_talkTime}}
                         </p>
                     </div>
                 </md-list-item>
@@ -58,7 +58,7 @@
                     <div class="md-list-item-text">
                         <h3>Standby time (max)</h3>
                         <p>
-                            {{phone.battery.standbyTime}}
+                            {{phone.battery_standbyTime}}
                         </p>
                     </div>
                 </md-list-item>
@@ -130,7 +130,7 @@
                     <div class="md-list-item-text">
                         <h3>Bluetooth</h3>
                         <p>
-                            {{phone.connectivity.wifi}}
+                            {{phone.connectivity.bluetooth}}
                         </p>
                     </div>
                 </md-list-item>
@@ -191,7 +191,7 @@
                     <div class="md-list-item-text">
                         <h3>Screen size</h3>
                         <p>
-                            {{phone.display.screenSize}}
+                            {{phone.screenSize}}
                         </p>
                     </div>
                 </md-list-item>
@@ -200,7 +200,7 @@
                     <div class="md-list-item-text">
                         <h3>Screen resolution</h3>
                         <p>
-                            {{phone.display.screenResolution}}
+                            {{phone.screenResolution}}
                         </p>
                     </div>
                 </md-list-item>
@@ -209,7 +209,7 @@
                     <div class="md-list-item-text">
                         <h3>Touch screen</h3>
                         <p>
-                            {{phone.display.touchScreen | checkmark}}
+                            {{phone.touchScreen | checkmark}}
                         </p>
                     </div>
                 </md-list-item>
@@ -269,7 +269,7 @@
                     <div class="md-list-item-text">
                         <h3>Primary</h3>
                         <p>
-                            {{phone.camera.primary}}
+                            {{phone.camera_primary}}
                         </p>
                     </div>
                 </md-list-item>
@@ -278,7 +278,7 @@
                     <div class="md-list-item-text">
                         <h3>Features</h3>
                         <p>
-                            {{phone.camera.features.join(', ')}}
+                            {{phone.camera_features.join(', ')}}
                         </p>
                     </div>
                 </md-list-item>

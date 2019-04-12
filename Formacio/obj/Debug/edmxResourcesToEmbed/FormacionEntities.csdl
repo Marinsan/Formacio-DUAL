@@ -14,6 +14,11 @@
       <End Role="So" EntitySet="So" />
       <End Role="Telefonos" EntitySet="Telefonos" />
     </AssociationSet>
+    <EntitySet Name="Connectivity" EntityType="FormacionModel.Connectivity" />
+    <AssociationSet Name="FK_Telefonos_Connectivity" Association="FormacionModel.FK_Telefonos_Connectivity">
+      <End Role="Connectivity" EntitySet="Connectivity" />
+      <End Role="Telefonos" EntitySet="Telefonos" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Clientes">
     <Key>
@@ -75,6 +80,16 @@
     <Property Name="storage_flash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idConnectivity" Type="Int32" />
+    <NavigationProperty Name="Connectivity" Relationship="FormacionModel.FK_Telefonos_Connectivity" FromRole="Telefonos" ToRole="Connectivity" />
+    <Property Name="battery_standbyTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="battery_talkTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="battery_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="camera_primary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="camera_features" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="screenResolution" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="screenSize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="touchScreen" Type="Boolean" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -109,6 +124,31 @@
       </Principal>
       <Dependent Role="Telefonos">
         <PropertyRef Name="idSo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Connectivity">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bluetooth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cell" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="gps" Type="Boolean" />
+    <Property Name="infrared" Type="Boolean" />
+    <Property Name="wifi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Telefonos" Relationship="FormacionModel.FK_Telefonos_Connectivity" FromRole="Connectivity" ToRole="Telefonos" />
+  </EntityType>
+  <Association Name="FK_Telefonos_Connectivity">
+    <End Type="FormacionModel.Connectivity" Role="Connectivity" Multiplicity="0..1" />
+    <End Type="FormacionModel.Telefonos" Role="Telefonos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Connectivity">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Telefonos">
+        <PropertyRef Name="idConnectivity" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -22,7 +22,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="codigo" Type="nvarchar" MaxLength="50" />
           <Property Name="bluetooth" Type="nvarchar" MaxLength="50" />
-          <Property Name="cell" Type="nvarchar" MaxLength="50" />
+          <Property Name="cell" Type="nvarchar" MaxLength="250" />
           <Property Name="gps" Type="bit" />
           <Property Name="infrared" Type="bit" />
           <Property Name="wifi" Type="nvarchar" MaxLength="50" />
@@ -34,6 +34,18 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="codigo" Type="nvarchar" MaxLength="50" />
           <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Hardware">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="50" />
+          <Property Name="cpu" Type="nvarchar" MaxLength="50" />
+          <Property Name="usb" Type="nvarchar" MaxLength="50" />
+          <Property Name="audioJack" Type="nvarchar" MaxLength="50" />
+          <Property Name="fmRadio" Type="bit" />
+          <Property Name="accelerometer" Type="bit" />
         </EntityType>
         <EntityType Name="So">
           <Key>
@@ -62,6 +74,15 @@
           <Property Name="size" Type="nvarchar" MaxLength="50" />
           <Property Name="weight" Type="nvarchar" MaxLength="50" />
           <Property Name="idConnectivity" Type="int" />
+          <Property Name="battery_standbyTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="battery_talkTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="battery_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="camera_primary" Type="nvarchar" MaxLength="50" />
+          <Property Name="camera_features" Type="nvarchar" MaxLength="50" />
+          <Property Name="screenResolution" Type="nvarchar" MaxLength="50" />
+          <Property Name="screenSize" Type="nvarchar" MaxLength="50" />
+          <Property Name="touchScreen" Type="bit" />
+          <Property Name="idHardware" Type="int" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -111,6 +132,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Telefonos_Hardware">
+          <End Role="Hardware" Type="Self.Hardware" Multiplicity="0..1" />
+          <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hardware">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Telefonos">
+              <PropertyRef Name="idHardware" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Telefonos_So">
           <End Role="So" Type="Self.So" Multiplicity="1" />
           <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
@@ -127,6 +160,7 @@
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Connectivity" EntityType="Self.Connectivity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hardware" EntityType="Self.Hardware" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="So" EntityType="Self.So" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
@@ -136,6 +170,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Telefonos_Connectivity" Association="Self.FK_Telefonos_Connectivity">
             <End Role="Connectivity" EntitySet="Connectivity" />
+            <End Role="Telefonos" EntitySet="Telefonos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefonos_Hardware" Association="Self.FK_Telefonos_Hardware">
+            <End Role="Hardware" EntitySet="Hardware" />
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
           <AssociationSet Name="FK_Telefonos_So" Association="Self.FK_Telefonos_So">
@@ -164,6 +202,11 @@
           <EntitySet Name="Connectivity" EntityType="FormacionModel.Connectivity" />
           <AssociationSet Name="FK_Telefonos_Connectivity" Association="FormacionModel.FK_Telefonos_Connectivity">
             <End Role="Connectivity" EntitySet="Connectivity" />
+            <End Role="Telefonos" EntitySet="Telefonos" />
+          </AssociationSet>
+          <EntitySet Name="Hardware" EntityType="FormacionModel.Hardware" />
+          <AssociationSet Name="FK_Telefonos_Hardware" Association="FormacionModel.FK_Telefonos_Hardware">
+            <End Role="Hardware" EntitySet="Hardware" />
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
         </EntityContainer>
@@ -229,6 +272,16 @@
           <Property Name="weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="idConnectivity" Type="Int32" />
           <NavigationProperty Name="Connectivity" Relationship="FormacionModel.FK_Telefonos_Connectivity" FromRole="Telefonos" ToRole="Connectivity" />
+          <Property Name="battery_standbyTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="battery_talkTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="battery_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="camera_primary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="camera_features" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="screenResolution" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="screenSize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="touchScreen" Type="Boolean" />
+          <Property Name="idHardware" Type="Int32" />
+          <NavigationProperty Name="Hardware" Relationship="FormacionModel.FK_Telefonos_Hardware" FromRole="Telefonos" ToRole="Hardware" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -273,7 +326,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="bluetooth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cell" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="gps" Type="Boolean" />
           <Property Name="infrared" Type="Boolean" />
           <Property Name="wifi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -288,6 +341,31 @@
             </Principal>
             <Dependent Role="Telefonos">
               <PropertyRef Name="idConnectivity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Hardware">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cpu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="usb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="audioJack" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fmRadio" Type="Boolean" />
+          <Property Name="accelerometer" Type="Boolean" />
+          <NavigationProperty Name="Telefonos" Relationship="FormacionModel.FK_Telefonos_Hardware" FromRole="Hardware" ToRole="Telefonos" />
+        </EntityType>
+        <Association Name="FK_Telefonos_Hardware">
+          <End Type="FormacionModel.Hardware" Role="Hardware" Multiplicity="0..1" />
+          <End Type="FormacionModel.Telefonos" Role="Telefonos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hardware">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Telefonos">
+              <PropertyRef Name="idHardware" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -331,6 +409,15 @@
           <EntitySetMapping Name="Telefonos">
             <EntityTypeMapping TypeName="FormacionModel.Telefonos">
               <MappingFragment StoreEntitySet="Telefonos">
+                <ScalarProperty Name="idHardware" ColumnName="idHardware" />
+                <ScalarProperty Name="touchScreen" ColumnName="touchScreen" />
+                <ScalarProperty Name="screenSize" ColumnName="screenSize" />
+                <ScalarProperty Name="screenResolution" ColumnName="screenResolution" />
+                <ScalarProperty Name="camera_features" ColumnName="camera_features" />
+                <ScalarProperty Name="camera_primary" ColumnName="camera_primary" />
+                <ScalarProperty Name="battery_type" ColumnName="battery_type" />
+                <ScalarProperty Name="battery_talkTime" ColumnName="battery_talkTime" />
+                <ScalarProperty Name="battery_standbyTime" ColumnName="battery_standbyTime" />
                 <ScalarProperty Name="idConnectivity" ColumnName="idConnectivity" />
                 <ScalarProperty Name="weight" ColumnName="weight" />
                 <ScalarProperty Name="size" ColumnName="size" />
@@ -380,6 +467,19 @@
                 <ScalarProperty Name="gps" ColumnName="gps" />
                 <ScalarProperty Name="cell" ColumnName="cell" />
                 <ScalarProperty Name="bluetooth" ColumnName="bluetooth" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hardware">
+            <EntityTypeMapping TypeName="FormacionModel.Hardware">
+              <MappingFragment StoreEntitySet="Hardware">
+                <ScalarProperty Name="accelerometer" ColumnName="accelerometer" />
+                <ScalarProperty Name="fmRadio" ColumnName="fmRadio" />
+                <ScalarProperty Name="audioJack" ColumnName="audioJack" />
+                <ScalarProperty Name="usb" ColumnName="usb" />
+                <ScalarProperty Name="cpu" ColumnName="cpu" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
