@@ -258,7 +258,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hardware.cs">
+      <DependentUpon>FormacionEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelsAmpliado\Connectivity.cs" />
+    <Compile Include="ModelsAmpliado\Hardware.cs" />
     <Compile Include="ModelsAmpliado\So.cs" />
     <Compile Include="ModelsAmpliado\Telefonos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

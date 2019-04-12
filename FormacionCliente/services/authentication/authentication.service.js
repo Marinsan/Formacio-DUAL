@@ -56,7 +56,8 @@
                             username: params.username,
                             password: params.password,
                             grant_type: 'password'
-                        }
+
+                        },
                     }).then(
                         function successCallback(response) {
                             _saveUserAndToken(response.data.access_token, response.data.refresh_token, params.sede);
@@ -64,6 +65,7 @@
                             defered.resolve();
                         }
                         , function errorCallback(response) {
+                           
                             defered.reject(response);
                         }
                     );

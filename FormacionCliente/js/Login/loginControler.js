@@ -3,8 +3,8 @@
 
     angular.module('routerApp')
 
-    .controller('LoginControler', ['$rootScope', '$scope', '$state', 'Authentication',
-                      function ($rootScope, $scope, $state, Authentication) { 
+    .controller('LoginControler', ['$rootScope', '$scope', '$state', 'Authentication', '$mdToast',
+                      function ($rootScope, $scope, $state, Authentication, $mdToast) { 
 
     $rootScope.pantallaDesc = "Login";
 
@@ -28,9 +28,18 @@
 
                         $state.go("home", {}, { reload: true });
                         
-                }).error(function(error){
-                    console.error("El usuario o la contraseña son incorrectos.");
-                });
+                }).error(function (error) {
+
+                            $mdToast.show(
+                            $mdToast.simple()
+                             .textContent('El usuario o la contraseña son incorrectos!')
+                            .position('top right')
+                            .hideDelay(3000))
+                            .catch(function () {
+                                console.log('Error Toast o ha sido forzado por otro toast.');
+                            })
+
+                        })
        }
     }
                  

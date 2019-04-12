@@ -4,10 +4,10 @@
     <div class="phone-images">
         <img ng-src="{{img}}" class="phone"
              ng-class="{selected: img === mainImageUrl}"
-             ng-repeat="img in phone.images" />
+             ng-repeat="img in phone.images track by $index" />
     </div>
     <ul class="phone-thumbs">
-        <li ng-repeat="img in phone.images">
+        <li ng-repeat="img in phone.images track by $index">
             <img ng-src="{{img}}" ng-click="setImage(img)" />
         </li>
     </ul>
@@ -27,7 +27,7 @@
                     <img src="/img/icons/baseline-network_cell-24px.svg?20" class="md-avatar" />
                     <div class="md-list-item-text">
                         <h3>Availability</h3>
-                        <p ng-repeat="availability in phone.availability">{{availability}}</p>
+                        <p>{{phone.availability}}</p>
                     </div>
                 </md-list-item>
                 <md-divider></md-divider>

@@ -30,6 +30,18 @@
     <Property Name="codigo" Type="nvarchar" MaxLength="50" />
     <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Hardware">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="nvarchar" MaxLength="50" />
+    <Property Name="cpu" Type="nvarchar" MaxLength="50" />
+    <Property Name="usb" Type="nvarchar" MaxLength="50" />
+    <Property Name="audioJack" Type="nvarchar" MaxLength="50" />
+    <Property Name="fmRadio" Type="bit" />
+    <Property Name="accelerometer" Type="bit" />
+  </EntityType>
   <EntityType Name="So">
     <Key>
       <PropertyRef Name="id" />
@@ -65,6 +77,9 @@
     <Property Name="screenResolution" Type="nvarchar" MaxLength="50" />
     <Property Name="screenSize" Type="nvarchar" MaxLength="50" />
     <Property Name="touchScreen" Type="bit" />
+    <Property Name="idHardware" Type="int" />
+    <Property Name="images" Type="nvarchar" MaxLength="500" />
+    <Property Name="availability" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -114,6 +129,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Telefonos_Hardware">
+    <End Role="Hardware" Type="Self.Hardware" Multiplicity="0..1" />
+    <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hardware">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Telefonos">
+        <PropertyRef Name="idHardware" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Telefonos_So">
     <End Role="So" Type="Self.So" Multiplicity="1" />
     <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
@@ -130,6 +157,7 @@
     <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Connectivity" EntityType="Self.Connectivity" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hardware" EntityType="Self.Hardware" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="So" EntityType="Self.So" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
@@ -139,6 +167,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Telefonos_Connectivity" Association="Self.FK_Telefonos_Connectivity">
       <End Role="Connectivity" EntitySet="Connectivity" />
+      <End Role="Telefonos" EntitySet="Telefonos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefonos_Hardware" Association="Self.FK_Telefonos_Hardware">
+      <End Role="Hardware" EntitySet="Hardware" />
       <End Role="Telefonos" EntitySet="Telefonos" />
     </AssociationSet>
     <AssociationSet Name="FK_Telefonos_So" Association="Self.FK_Telefonos_So">

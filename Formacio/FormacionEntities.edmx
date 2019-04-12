@@ -83,6 +83,8 @@
           <Property Name="screenSize" Type="nvarchar" MaxLength="50" />
           <Property Name="touchScreen" Type="bit" />
           <Property Name="idHardware" Type="int" />
+          <Property Name="images" Type="nvarchar" MaxLength="500" />
+          <Property Name="availability" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -282,6 +284,8 @@
           <Property Name="touchScreen" Type="Boolean" />
           <Property Name="idHardware" Type="Int32" />
           <NavigationProperty Name="Hardware" Relationship="FormacionModel.FK_Telefonos_Hardware" FromRole="Telefonos" ToRole="Hardware" />
+          <Property Name="images" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="availability" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -409,6 +413,8 @@
           <EntitySetMapping Name="Telefonos">
             <EntityTypeMapping TypeName="FormacionModel.Telefonos">
               <MappingFragment StoreEntitySet="Telefonos">
+                <ScalarProperty Name="availability" ColumnName="availability" />
+                <ScalarProperty Name="images" ColumnName="images" />
                 <ScalarProperty Name="idHardware" ColumnName="idHardware" />
                 <ScalarProperty Name="touchScreen" ColumnName="touchScreen" />
                 <ScalarProperty Name="screenSize" ColumnName="screenSize" />

@@ -35,6 +35,9 @@
     <EntitySetMapping Name="Telefonos">
       <EntityTypeMapping TypeName="FormacionModel.Telefonos">
         <MappingFragment StoreEntitySet="Telefonos">
+          <ScalarProperty Name="availability" ColumnName="availability" />
+          <ScalarProperty Name="images" ColumnName="images" />
+          <ScalarProperty Name="idHardware" ColumnName="idHardware" />
           <ScalarProperty Name="touchScreen" ColumnName="touchScreen" />
           <ScalarProperty Name="screenSize" ColumnName="screenSize" />
           <ScalarProperty Name="screenResolution" ColumnName="screenResolution" />
@@ -92,6 +95,19 @@
           <ScalarProperty Name="gps" ColumnName="gps" />
           <ScalarProperty Name="cell" ColumnName="cell" />
           <ScalarProperty Name="bluetooth" ColumnName="bluetooth" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hardware">
+      <EntityTypeMapping TypeName="FormacionModel.Hardware">
+        <MappingFragment StoreEntitySet="Hardware">
+          <ScalarProperty Name="accelerometer" ColumnName="accelerometer" />
+          <ScalarProperty Name="fmRadio" ColumnName="fmRadio" />
+          <ScalarProperty Name="audioJack" ColumnName="audioJack" />
+          <ScalarProperty Name="usb" ColumnName="usb" />
+          <ScalarProperty Name="cpu" ColumnName="cpu" />
           <ScalarProperty Name="codigo" ColumnName="codigo" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>

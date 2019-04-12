@@ -19,6 +19,11 @@
       <End Role="Connectivity" EntitySet="Connectivity" />
       <End Role="Telefonos" EntitySet="Telefonos" />
     </AssociationSet>
+    <EntitySet Name="Hardware" EntityType="FormacionModel.Hardware" />
+    <AssociationSet Name="FK_Telefonos_Hardware" Association="FormacionModel.FK_Telefonos_Hardware">
+      <End Role="Hardware" EntitySet="Hardware" />
+      <End Role="Telefonos" EntitySet="Telefonos" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Clientes">
     <Key>
@@ -90,6 +95,10 @@
     <Property Name="screenResolution" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="screenSize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="touchScreen" Type="Boolean" />
+    <Property Name="idHardware" Type="Int32" />
+    <NavigationProperty Name="Hardware" Relationship="FormacionModel.FK_Telefonos_Hardware" FromRole="Telefonos" ToRole="Hardware" />
+    <Property Name="images" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="availability" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -149,6 +158,31 @@
       </Principal>
       <Dependent Role="Telefonos">
         <PropertyRef Name="idConnectivity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Hardware">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cpu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="usb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="audioJack" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fmRadio" Type="Boolean" />
+    <Property Name="accelerometer" Type="Boolean" />
+    <NavigationProperty Name="Telefonos" Relationship="FormacionModel.FK_Telefonos_Hardware" FromRole="Hardware" ToRole="Telefonos" />
+  </EntityType>
+  <Association Name="FK_Telefonos_Hardware">
+    <End Type="FormacionModel.Hardware" Role="Hardware" Multiplicity="0..1" />
+    <End Type="FormacionModel.Telefonos" Role="Telefonos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hardware">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Telefonos">
+        <PropertyRef Name="idHardware" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

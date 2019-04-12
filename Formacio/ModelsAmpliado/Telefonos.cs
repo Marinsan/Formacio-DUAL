@@ -21,6 +21,7 @@ namespace Formacio
                         this.storage_ram,
                         this.storage_flash,
                         this.size,
+                        this.additionalFeatures,
                         this.weight,
                         this.screenSize,
                         this.screenResolution,
@@ -30,6 +31,8 @@ namespace Formacio
                         this.battery_type,
                         this.battery_talkTime,
                         this.battery_standbyTime,
+                        this.images,
+                        this.availability,
                         this.So!=null?this.So.toBean():null,
                         this.Connectivity!=null?this.Connectivity.toBean():null,
                         this.Hardware != null ? this.Hardware.toBean() : null);
