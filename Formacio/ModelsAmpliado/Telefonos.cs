@@ -10,7 +10,14 @@ namespace Formacio
 
         public Beans.TelefonoBean toBean()
         {
+
+            List<Beans.ImagesBean> list_images = new List<Beans.ImagesBean>();
            
+            foreach (Images img in this.Images)
+            {
+                list_images.Add(img.toBean());
+            }
+
             return new Beans.TelefonoBean(
                         this.id,
                         this.codigo,
@@ -35,7 +42,7 @@ namespace Formacio
                         this.So!=null?this.So.toBean():null,
                         this.Connectivity!=null?this.Connectivity.toBean():null,
                         this.Hardware != null ? this.Hardware.toBean() : null,
-                        this.Images != null ? this.Images.toBean() : null);
+                        list_images);
         }
 
     }

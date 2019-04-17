@@ -14,21 +14,10 @@ namespace Formacio
     
     public partial class Images
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Images()
-        {
-            this.Telefonos = new HashSet<Telefonos>();
-        }
-    
         public int id { get; set; }
-        public string codigo { get; set; }
-        public string image1 { get; set; }
-        public string image2 { get; set; }
-        public string image3 { get; set; }
-        public string image4 { get; set; }
-        public string image5 { get; set; }
+        public Nullable<int> idTelefono { get; set; }
+        public string image { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Telefonos> Telefonos { get; set; }
+        public virtual Telefonos Telefonos { get; set; }
     }
 }

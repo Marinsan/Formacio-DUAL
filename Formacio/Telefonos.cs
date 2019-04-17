@@ -14,6 +14,12 @@ namespace Formacio
     
     public partial class Telefonos
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Telefonos()
+        {
+            this.Images = new HashSet<Images>();
+        }
+    
         public int id { get; set; }
         public string codigo { get; set; }
         public string imageURL { get; set; }
@@ -37,11 +43,11 @@ namespace Formacio
         public Nullable<bool> touchScreen { get; set; }
         public Nullable<int> idHardware { get; set; }
         public string availability { get; set; }
-        public Nullable<int> idImages { get; set; }
     
         public virtual So So { get; set; }
         public virtual Connectivity Connectivity { get; set; }
         public virtual Hardware Hardware { get; set; }
-        public virtual Images Images { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Images> Images { get; set; }
     }
 }

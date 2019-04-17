@@ -7,6 +7,10 @@ namespace Formacio.Beans
 {
     public class TelefonoBean
     {
+        private List<ImagesBean> list_images;
+        private SoBean soBean;
+        private ConnectivityBean connectivityBean;
+        private HardwareBean hardwareBean;
 
         public int? id                          { get; set; }
         public String codigo                    { get; set; }
@@ -30,13 +34,13 @@ namespace Formacio.Beans
         public String availability              { get; set; }
 
 
-        public virtual So so { get; set; }
+        public SoBean so { get; set; }
 
-        public virtual Connectivity connectivity { get; set; }
+        public ConnectivityBean connectivity { get; set; }
 
-        public virtual Hardware hardware { get; set; }
+        public HardwareBean hardware { get; set; }
 
-        public virtual Images images { get; set; }
+        public List<ImagesBean> images { get; set; }
 
         public TelefonoBean() { }
 
@@ -60,10 +64,10 @@ namespace Formacio.Beans
                             String battery_talkTime,
                             String battery_standbyTime,
                             String availability,
-                            So so,
-                            Connectivity connectivity,
-                            Hardware hardware,
-                            Images images)
+                            SoBean so,
+                            ConnectivityBean connectivity,
+                            HardwareBean hardware,
+                            List<ImagesBean> list_images)
         {
             this.id                         = id;
             this.codigo                     = codigo;
@@ -84,135 +88,11 @@ namespace Formacio.Beans
             this.battery_type               = battery_type;
             this.battery_talkTime           = battery_talkTime;
             this.battery_standbyTime        = battery_standbyTime;
-            this.images                     = images;
             this.availability               = availability;
             this.so                         = so;
             this.connectivity               = connectivity;
             this.hardware                   = hardware;
-
-        }
-            
-
-
-    }
-
-    public class So
-    {
-
-        public int? id              { get; set; }
-        public String codigo        { get; set; }
-        public String tipo          { get; set; }
-        public String versionOs     { get; set; }
-        public String versionUi     { get; set; }
-
-        public So() { }
-
-        public So(int? id,
-                  String codigo,
-                  String tipo,
-                  String versionOs,
-                  String versionUi)
-        {
-            this.id = id;
-            this.codigo = codigo;
-            this.tipo = tipo;
-            this.versionOs = versionOs;
-            this.versionUi = versionUi;
-        }
-    }
-
-    public class Connectivity
-    {
-
-        public int? id { get; set; }
-        public String codigo { get; set; }
-        public String bluetooth { get; set; }
-        public String cell { get; set; }
-        public Boolean? gps { get; set; }
-        public Boolean? infrared { get; set; }
-        public String wifi { get; set; }
-
-        public Connectivity() { }
-
-        public Connectivity(int? id,
-                  String codigo,
-                  String bluetooth,
-                  String cell,
-                  Boolean? gps,
-                  Boolean? infrared,
-                  String wifi)
-        {
-            this.id             = id;
-            this.codigo         = codigo;
-            this.bluetooth      = bluetooth;
-            this.cell           = cell;
-            this.gps            = gps;
-            this.infrared       = infrared;
-            this.wifi           = wifi;
-        }
-    }
-
-    public class Hardware
-    {
-
-        public int? id                      { get; set; }
-        public String codigo                { get; set; }
-        public String cpu                   { get; set; }
-        public String usb                   { get; set; }
-        public String audioJack             { get; set; }
-        public Boolean? fmRadio               { get; set; }
-        public Boolean? accelerometer       { get; set; }
-
-        public Hardware() { }
-
-        public Hardware(
-                             int? id,
-                             String codigo,
-                             String cpu,
-                             String usb,
-                             String audioJack,
-                             Boolean? fmRadio,
-                             Boolean? accelerometer
-                        )
-        {
-            this.id                 = id;
-            this.codigo             = codigo;
-            this.cpu                = cpu;
-            this.usb                = usb;
-            this.audioJack          = audioJack;
-            this.fmRadio            = fmRadio;
-            this.accelerometer      = accelerometer;
-        }
-    }
-
-    public class Images
-    {
-
-        public int? id              { get; set; }
-        public String codigo        { get; set; }
-        public String image1        { get; set; }
-        public String image2        { get; set; }
-        public String image3        { get; set; }
-        public String image4        { get; set; }
-        public String image5        { get; set; }
-
-        public Images() { }
-
-        public Images(int? id,
-                  String codigo,
-                  String image1,
-                  String image2,
-                  String image3,
-                  String image4,
-                  String image5)
-        {
-            this.id = id;
-            this.codigo = codigo;
-            this.image1 = image1;
-            this.image2 = image2;
-            this.image3 = image3;
-            this.image4 = image4;
-            this.image5 = image5;
+            this.list_images                = list_images;
         }
     }
 }

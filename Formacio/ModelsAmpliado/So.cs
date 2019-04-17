@@ -8,9 +8,9 @@ namespace Formacio
     public partial class So
     {
 
-        public Beans.So toBean()
+        public Beans.SoBean toBean()
         {
-            return new Beans.So(
+            return new Beans.SoBean(
                             this.id,
                             this.codigo,
                             this.tipo,

@@ -25,9 +25,9 @@
       <End Role="Telefonos" EntitySet="Telefonos" />
     </AssociationSet>
     <EntitySet Name="Images" EntityType="FormacionModel.Images" />
-    <AssociationSet Name="FK_Telefonos_images" Association="FormacionModel.FK_Telefonos_images">
-      <End Role="Images" EntitySet="Images" />
+    <AssociationSet Name="FK_Images_IdTelefono" Association="FormacionModel.FK_Images_IdTelefono">
       <End Role="Telefonos" EntitySet="Telefonos" />
+      <End Role="Images" EntitySet="Images" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Clientes">
@@ -103,8 +103,7 @@
     <Property Name="idHardware" Type="Int32" />
     <NavigationProperty Name="Hardware" Relationship="FormacionModel.FK_Telefonos_Hardware" FromRole="Telefonos" ToRole="Hardware" />
     <Property Name="availability" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="idImages" Type="Int32" />
-    <NavigationProperty Name="Images" Relationship="FormacionModel.FK_Telefonos_images" FromRole="Telefonos" ToRole="Images" />
+    <NavigationProperty Name="Images" Relationship="FormacionModel.FK_Images_IdTelefono" FromRole="Telefonos" ToRole="Images" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -197,23 +196,19 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="image1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="image2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="image3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="image4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="image5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Telefonos" Relationship="FormacionModel.FK_Telefonos_images" FromRole="Images" ToRole="Telefonos" />
+    <Property Name="idTelefono" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Telefonos" Relationship="FormacionModel.FK_Images_IdTelefono" FromRole="Images" ToRole="Telefonos" />
   </EntityType>
-  <Association Name="FK_Telefonos_images">
-    <End Type="FormacionModel.Images" Role="Images" Multiplicity="0..1" />
-    <End Type="FormacionModel.Telefonos" Role="Telefonos" Multiplicity="*" />
+  <Association Name="FK_Images_IdTelefono">
+    <End Type="FormacionModel.Telefonos" Role="Telefonos" Multiplicity="0..1" />
+    <End Type="FormacionModel.Images" Role="Images" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Images">
+      <Principal Role="Telefonos">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="Telefonos">
-        <PropertyRef Name="idImages" />
+      <Dependent Role="Images">
+        <PropertyRef Name="idTelefono" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

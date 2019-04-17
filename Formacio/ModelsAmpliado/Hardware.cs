@@ -8,9 +8,9 @@ namespace Formacio
     public partial class Hardware
     {
 
-        public Beans.Hardware toBean()
+        public Beans.HardwareBean toBean()
         {
-            return new Beans.Hardware(
+            return new Beans.HardwareBean(
                        this.id,
                        this.codigo,
                        this.cpu,

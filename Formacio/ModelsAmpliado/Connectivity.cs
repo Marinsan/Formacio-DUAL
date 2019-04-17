@@ -8,9 +8,9 @@ namespace Formacio
     public partial class Connectivity
     {
 
-        public Beans.Connectivity toBean()
+        public Beans.ConnectivityBean toBean()
         {
-            return new Beans.Connectivity(
+            return new Beans.ConnectivityBean(
                        this.id,
                        this.codigo,
                        this.bluetooth,

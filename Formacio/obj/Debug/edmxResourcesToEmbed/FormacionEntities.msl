@@ -35,7 +35,6 @@
     <EntitySetMapping Name="Telefonos">
       <EntityTypeMapping TypeName="FormacionModel.Telefonos">
         <MappingFragment StoreEntitySet="Telefonos">
-          <ScalarProperty Name="idImages" ColumnName="idImages" />
           <ScalarProperty Name="availability" ColumnName="availability" />
           <ScalarProperty Name="idHardware" ColumnName="idHardware" />
           <ScalarProperty Name="touchScreen" ColumnName="touchScreen" />
@@ -116,12 +115,8 @@
     <EntitySetMapping Name="Images">
       <EntityTypeMapping TypeName="FormacionModel.Images">
         <MappingFragment StoreEntitySet="Images">
-          <ScalarProperty Name="image5" ColumnName="image5" />
-          <ScalarProperty Name="image4" ColumnName="image4" />
-          <ScalarProperty Name="image3" ColumnName="image3" />
-          <ScalarProperty Name="image2" ColumnName="image2" />
-          <ScalarProperty Name="image1" ColumnName="image1" />
-          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="idTelefono" ColumnName="idTelefono" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

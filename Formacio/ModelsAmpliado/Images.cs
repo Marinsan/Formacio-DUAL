@@ -8,16 +8,12 @@ namespace Formacio
     public partial class Images
     {
 
-        public Beans.Images toBean()
+        public Beans.ImagesBean toBean()
         {
-            return new Beans.Images(
+            return new Beans.ImagesBean(
                        this.id,
-                       this.codigo,
-                       this.image1,
-                       this.image2,
-                       this.image3,
-                       this.image4,
-                       this.image5
+                       this.idTelefono,
+                       this.image
            );
         }
 
