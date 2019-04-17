@@ -1,19 +1,32 @@
 ﻿<div layout="column" layout-align="center center" id="show">
     <h1>{{phone.name}}</h1>
     <br />
-    <div class="phone-images">
-        <img ng-src="{{phone.images}}" class="phone" />
+    <div class="phone-images" ng-hide="phone.ImageUrl == null">
+        <img ng-src="{{phone.ImageUrl}}" class="phone" />
     </div>
     <ul class="phone-thumbs">
-        <!--<li ng-repeat="{{phone.images}}">
-            <img ng-src="{{phone.images}}" ng-click="setImage(img)" />
-        </li>-->
+        <li ng-hide="phone.images.image1 == null">
+            <img ng-src="{{phone.images.image1}}" />
+        </li>
+        <li ng-hide="phone.images.image2 == null">
+            <img ng-src="{{phone.images.image2}}" />
+        </li>
+        <li ng-hide="phone.images.image3 == null">
+            <img ng-src="{{phone.images.image3}}" />
+        </li>
+        <li ng-hide="phone.images.image4 == null">
+            <img ng-src="{{phone.images.image4}}"/>
+        </li>
+        <li ng-hide="phone.images.image5 == null">
+            <img ng-src="{{phone.images.image5}}" />
+        </li>
     </ul>
     <p>{{phone.description}}</p>
     <br />
 </div>
 
-<md-content class="md-padding" layout-xs="column" layout="row">
+
+<md-content class="md-padding" layout-xs="column" layout="row" ng-hide="phone.so.versionOs == null">
     <div flex-xs flex-gt-xs="50" layout="column">
 
         <md-content>

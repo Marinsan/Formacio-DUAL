@@ -31,11 +31,11 @@ namespace Formacio
                         this.battery_type,
                         this.battery_talkTime,
                         this.battery_standbyTime,
-                        this.images,
                         this.availability,
                         this.So!=null?this.So.toBean():null,
                         this.Connectivity!=null?this.Connectivity.toBean():null,
-                        this.Hardware != null ? this.Hardware.toBean() : null);
+                        this.Hardware != null ? this.Hardware.toBean() : null,
+                        this.Images != null ? this.Images.toBean() : null);
         }
 
     }

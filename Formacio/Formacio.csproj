@@ -261,7 +261,11 @@
     <Compile Include="Hardware.cs">
       <DependentUpon>FormacionEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Images.cs">
+      <DependentUpon>FormacionEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelsAmpliado\Connectivity.cs" />
+    <Compile Include="ModelsAmpliado\Images.cs" />
     <Compile Include="ModelsAmpliado\Hardware.cs" />
     <Compile Include="ModelsAmpliado\So.cs" />
     <Compile Include="ModelsAmpliado\Telefonos.cs" />

@@ -36,11 +36,12 @@ namespace Formacio
         public string screenSize { get; set; }
         public Nullable<bool> touchScreen { get; set; }
         public Nullable<int> idHardware { get; set; }
-        public string images { get; set; }
         public string availability { get; set; }
+        public Nullable<int> idImages { get; set; }
     
         public virtual So So { get; set; }
         public virtual Connectivity Connectivity { get; set; }
         public virtual Hardware Hardware { get; set; }
+        public virtual Images Images { get; set; }
     }
 }

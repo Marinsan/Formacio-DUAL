@@ -27,7 +27,6 @@ namespace Formacio.Beans
         public String battery_type              { get; set; }
         public String battery_talkTime          { get; set; }
         public String battery_standbyTime       { get; set; }
-        public String images                    { get; set; }
         public String availability              { get; set; }
 
 
@@ -36,6 +35,8 @@ namespace Formacio.Beans
         public virtual Connectivity connectivity { get; set; }
 
         public virtual Hardware hardware { get; set; }
+
+        public virtual Images images { get; set; }
 
         public TelefonoBean() { }
 
@@ -58,11 +59,11 @@ namespace Formacio.Beans
                             String battery_type,
                             String battery_talkTime,
                             String battery_standbyTime,
-                            String images,
                             String availability,
                             So so,
                             Connectivity connectivity,
-                            Hardware hardware)
+                            Hardware hardware,
+                            Images images)
         {
             this.id                         = id;
             this.codigo                     = codigo;
@@ -181,6 +182,37 @@ namespace Formacio.Beans
             this.audioJack          = audioJack;
             this.fmRadio            = fmRadio;
             this.accelerometer      = accelerometer;
+        }
+    }
+
+    public class Images
+    {
+
+        public int? id              { get; set; }
+        public String codigo        { get; set; }
+        public String image1        { get; set; }
+        public String image2        { get; set; }
+        public String image3        { get; set; }
+        public String image4        { get; set; }
+        public String image5        { get; set; }
+
+        public Images() { }
+
+        public Images(int? id,
+                  String codigo,
+                  String image1,
+                  String image2,
+                  String image3,
+                  String image4,
+                  String image5)
+        {
+            this.id = id;
+            this.codigo = codigo;
+            this.image1 = image1;
+            this.image2 = image2;
+            this.image3 = image3;
+            this.image4 = image4;
+            this.image5 = image5;
         }
     }
 }

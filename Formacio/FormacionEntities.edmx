@@ -47,6 +47,18 @@
           <Property Name="fmRadio" Type="bit" />
           <Property Name="accelerometer" Type="bit" />
         </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="50" />
+          <Property Name="image1" Type="nvarchar" MaxLength="50" />
+          <Property Name="image2" Type="nvarchar" MaxLength="50" />
+          <Property Name="image3" Type="nvarchar" MaxLength="50" />
+          <Property Name="image4" Type="nvarchar" MaxLength="50" />
+          <Property Name="image5" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="So">
           <Key>
             <PropertyRef Name="id" />
@@ -83,8 +95,8 @@
           <Property Name="screenSize" Type="nvarchar" MaxLength="50" />
           <Property Name="touchScreen" Type="bit" />
           <Property Name="idHardware" Type="int" />
-          <Property Name="images" Type="nvarchar" MaxLength="500" />
           <Property Name="availability" Type="nvarchar" MaxLength="50" />
+          <Property Name="idImages" Type="int" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -146,6 +158,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Telefonos_images">
+          <End Role="Images" Type="Self.Images" Multiplicity="0..1" />
+          <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Telefonos">
+              <PropertyRef Name="idImages" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Telefonos_So">
           <End Role="So" Type="Self.So" Multiplicity="1" />
           <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
@@ -163,6 +187,7 @@
           <EntitySet Name="Connectivity" EntityType="Self.Connectivity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hardware" EntityType="Self.Hardware" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="So" EntityType="Self.So" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
@@ -176,6 +201,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Telefonos_Hardware" Association="Self.FK_Telefonos_Hardware">
             <End Role="Hardware" EntitySet="Hardware" />
+            <End Role="Telefonos" EntitySet="Telefonos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefonos_images" Association="Self.FK_Telefonos_images">
+            <End Role="Images" EntitySet="Images" />
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
           <AssociationSet Name="FK_Telefonos_So" Association="Self.FK_Telefonos_So">
@@ -209,6 +238,11 @@
           <EntitySet Name="Hardware" EntityType="FormacionModel.Hardware" />
           <AssociationSet Name="FK_Telefonos_Hardware" Association="FormacionModel.FK_Telefonos_Hardware">
             <End Role="Hardware" EntitySet="Hardware" />
+            <End Role="Telefonos" EntitySet="Telefonos" />
+          </AssociationSet>
+          <EntitySet Name="Images" EntityType="FormacionModel.Images" />
+          <AssociationSet Name="FK_Telefonos_images" Association="FormacionModel.FK_Telefonos_images">
+            <End Role="Images" EntitySet="Images" />
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
         </EntityContainer>
@@ -284,8 +318,9 @@
           <Property Name="touchScreen" Type="Boolean" />
           <Property Name="idHardware" Type="Int32" />
           <NavigationProperty Name="Hardware" Relationship="FormacionModel.FK_Telefonos_Hardware" FromRole="Telefonos" ToRole="Hardware" />
-          <Property Name="images" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="availability" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idImages" Type="Int32" />
+          <NavigationProperty Name="Images" Relationship="FormacionModel.FK_Telefonos_images" FromRole="Telefonos" ToRole="Images" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -373,6 +408,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Telefonos" Relationship="FormacionModel.FK_Telefonos_images" FromRole="Images" ToRole="Telefonos" />
+        </EntityType>
+        <Association Name="FK_Telefonos_images">
+          <End Type="FormacionModel.Images" Role="Images" Multiplicity="0..1" />
+          <End Type="FormacionModel.Telefonos" Role="Telefonos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Telefonos">
+              <PropertyRef Name="idImages" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -413,8 +473,8 @@
           <EntitySetMapping Name="Telefonos">
             <EntityTypeMapping TypeName="FormacionModel.Telefonos">
               <MappingFragment StoreEntitySet="Telefonos">
+                <ScalarProperty Name="idImages" ColumnName="idImages" />
                 <ScalarProperty Name="availability" ColumnName="availability" />
-                <ScalarProperty Name="images" ColumnName="images" />
                 <ScalarProperty Name="idHardware" ColumnName="idHardware" />
                 <ScalarProperty Name="touchScreen" ColumnName="touchScreen" />
                 <ScalarProperty Name="screenSize" ColumnName="screenSize" />
@@ -486,6 +546,19 @@
                 <ScalarProperty Name="audioJack" ColumnName="audioJack" />
                 <ScalarProperty Name="usb" ColumnName="usb" />
                 <ScalarProperty Name="cpu" ColumnName="cpu" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="FormacionModel.Images">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="image5" ColumnName="image5" />
+                <ScalarProperty Name="image4" ColumnName="image4" />
+                <ScalarProperty Name="image3" ColumnName="image3" />
+                <ScalarProperty Name="image2" ColumnName="image2" />
+                <ScalarProperty Name="image1" ColumnName="image1" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>

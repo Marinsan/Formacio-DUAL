@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="238eddcca74249fca2f0b4b5bf01dc79" Name="Diagram1">
+      <Diagram DiagramId="238eddcca74249fca2f0b4b5bf01dc79" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="FormacionModel.Clientes" Width="1.5" PointX="3" PointY="0.875" />
         <EntityTypeShape EntityType="FormacionModel.Departamentos" Width="1.5" PointX="0.75" PointY="1.125" />
         <AssociationConnector Association="FormacionModel.FK_CLIENTE_DEPARTAMENTO" />
@@ -16,6 +16,8 @@
         <AssociationConnector Association="FormacionModel.FK_Telefonos_Connectivity" />
         <EntityTypeShape EntityType="FormacionModel.Hardware" Width="1.5" PointX="7.375" PointY="7" />
         <AssociationConnector Association="FormacionModel.FK_Telefonos_Hardware" />
+        <EntityTypeShape EntityType="FormacionModel.Images" Width="1.5" PointX="8.375" PointY="1" />
+        <AssociationConnector Association="FormacionModel.FK_Telefonos_images" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
