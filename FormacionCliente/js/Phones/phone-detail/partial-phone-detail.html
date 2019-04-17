@@ -5,20 +5,8 @@
         <img ng-src="{{phone.ImageUrl}}" class="phone" />
     </div>
     <ul class="phone-thumbs">
-        <li ng-hide="phone.images.image1 == null">
-            <img ng-src="{{phone.images.image1}}" />
-        </li>
-        <li ng-hide="phone.images.image2 == null">
-            <img ng-src="{{phone.images.image2}}" />
-        </li>
-        <li ng-hide="phone.images.image3 == null">
-            <img ng-src="{{phone.images.image3}}" />
-        </li>
-        <li ng-hide="phone.images.image4 == null">
-            <img ng-src="{{phone.images.image4}}"/>
-        </li>
-        <li ng-hide="phone.images.image5 == null">
-            <img ng-src="{{phone.images.image5}}" />
+        <li ng-repeat="image in phone.images.list_images">
+            <img ng-src="{{image}}"/>
         </li>
     </ul>
     <p>{{phone.description}}</p>
