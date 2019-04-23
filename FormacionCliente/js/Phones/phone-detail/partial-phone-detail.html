@@ -5,8 +5,8 @@
         <img ng-src="{{phone.ImageUrl}}" class="phone" />
     </div>
     <ul class="phone-thumbs">
-        <li ng-repeat="image in phone.images.list_images">
-            <img ng-src="{{image}}"/>
+        <li ng-repeat="img in phone.list_images track by $index">
+            <img ng-src="{{img}}"/>
         </li>
     </ul>
     <p>{{phone.description}}</p>

@@ -11,8 +11,6 @@ namespace Formacio
         public Beans.ImagesBean toBean()
         {
             return new Beans.ImagesBean(
-                       this.id,
-                       this.idTelefono,
                        this.image
            );
         }
