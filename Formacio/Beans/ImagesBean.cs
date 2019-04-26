@@ -10,7 +10,6 @@ namespace Formacio.Beans
     {
 
             public String image         { get; set; }
-        
 
             public ImagesBean() { }
 
@@ -21,8 +20,5 @@ namespace Formacio.Beans
                 this.image = image;
             }
 
-
-
-        
     }
 }

@@ -121,5 +121,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Empleats">
+      <EntityTypeMapping TypeName="FormacionModel.Empleats">
+        <MappingFragment StoreEntitySet="Empleats">
+          <ScalarProperty Name="segon_cognom" ColumnName="segon_cognom" />
+          <ScalarProperty Name="primer_cognom" ColumnName="primer_cognom" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="codi" ColumnName="codi" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

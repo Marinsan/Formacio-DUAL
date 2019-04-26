@@ -30,6 +30,16 @@
     <Property Name="codigo" Type="nvarchar" MaxLength="50" />
     <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Empleats">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codi" Type="nvarchar" MaxLength="50" />
+    <Property Name="nom" Type="nvarchar" MaxLength="50" />
+    <Property Name="primer_cognom" Type="nvarchar" MaxLength="50" />
+    <Property Name="segon_cognom" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Hardware">
     <Key>
       <PropertyRef Name="id" />
@@ -176,6 +186,7 @@
     <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Connectivity" EntityType="Self.Connectivity" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleats" EntityType="Self.Empleats" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Hardware" EntityType="Self.Hardware" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="So" EntityType="Self.So" Schema="dbo" store:Type="Tables" />

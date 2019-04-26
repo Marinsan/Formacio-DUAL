@@ -1,0 +1,43 @@
+﻿    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codi</th>
+                <th>Nom</th>
+                <th>Primer Cognom</th>
+                <th>Segon Cognom</th>
+            </tr>
+        </thead>
+
+        
+
+        <tbody ng-repeat="Emp in empleat | orderBy:orderProp">
+
+            <tr>
+                <td>{{Emp.id}}</td>
+                <td>
+                    {{Emp.codi}}
+                </td>
+                <td>
+                    {{Emp.nom}}
+                </td>
+                <td>
+                    {{Emp.primer_cognom}}
+                </td>
+                <td>
+                    {{Emp.segon_cognom}}
+                </td>
+                <td>
+                    <a class="Edit" href="javascript:;" ng-hide="m.EditMode" ng-click="EditEmp($Emp)">Edit</a>
+                    <a class="Update" href="javascript:;" ng-show="m.EditMode" ng-click="UpdateEmp($Emp)">Update</a>
+                    <md-button class="md-icon-button md-warn" value="Delete" ng-click="DeleteEmp(Emp)">
+                        <md-icon title="Eliminar" md-svg-icon="img/icons/delete.svg"></md-icon>
+                    </md-button>
+                    <md-button ng-click="(Emp)" class="md-icon-button">
+                        <md-icon title="Editar" md-svg-icon="img/icons/edit.svg"></md-icon>
+                    </md-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+

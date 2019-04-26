@@ -18,6 +18,7 @@
         <AssociationConnector Association="FormacionModel.FK_Telefonos_Hardware" />
         <EntityTypeShape EntityType="FormacionModel.Images" Width="1.5" PointX="8.375" PointY="0.75" />
         <AssociationConnector Association="FormacionModel.FK_Images_IdTelefono" />
+        <EntityTypeShape EntityType="FormacionModel.Empleats" Width="1.5" PointX="8.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

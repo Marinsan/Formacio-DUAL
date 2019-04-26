@@ -35,6 +35,16 @@
           <Property Name="codigo" Type="nvarchar" MaxLength="50" />
           <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Empleats">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codi" Type="nvarchar" MaxLength="50" />
+          <Property Name="nom" Type="nvarchar" MaxLength="50" />
+          <Property Name="primer_cognom" Type="nvarchar" MaxLength="50" />
+          <Property Name="segon_cognom" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Hardware">
           <Key>
             <PropertyRef Name="id" />
@@ -181,6 +191,7 @@
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Connectivity" EntityType="Self.Connectivity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleats" EntityType="Self.Empleats" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hardware" EntityType="Self.Hardware" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="So" EntityType="Self.So" Schema="dbo" store:Type="Tables" />
@@ -240,6 +251,7 @@
             <End Role="Telefonos" EntitySet="Telefonos" />
             <End Role="Images" EntitySet="Images" />
           </AssociationSet>
+          <EntitySet Name="Empleats" EntityType="FormacionModel.Empleats" />
         </EntityContainer>
         <EntityType Name="Clientes">
           <Key>
@@ -423,6 +435,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Empleats">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="primer_cognom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="segon_cognom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -545,6 +567,17 @@
               <MappingFragment StoreEntitySet="Images">
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="idTelefono" ColumnName="idTelefono" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleats">
+            <EntityTypeMapping TypeName="FormacionModel.Empleats">
+              <MappingFragment StoreEntitySet="Empleats">
+                <ScalarProperty Name="segon_cognom" ColumnName="segon_cognom" />
+                <ScalarProperty Name="primer_cognom" ColumnName="primer_cognom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="codi" ColumnName="codi" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

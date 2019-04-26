@@ -230,6 +230,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Beans\ConnectivityBean.cs" />
     <Compile Include="Beans\HardwareBean.cs" />
+    <Compile Include="Beans\EmpleatBean.cs" />
     <Compile Include="Beans\SoBean.cs" />
     <Compile Include="Beans\ImagesBean.cs" />
     <Compile Include="Beans\TelefonoBean.cs" />
@@ -240,8 +241,12 @@
       <DependentUpon>FormacionEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\PrimarioController.cs" />
+    <Compile Include="Controllers\EmpleatController.cs" />
     <Compile Include="Controllers\TelefonoController.cs" />
     <Compile Include="Departamentos.cs">
+      <DependentUpon>FormacionEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empleats.cs">
       <DependentUpon>FormacionEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="FormacionEntities.Context.cs">
@@ -271,6 +276,7 @@
     <Compile Include="ModelsAmpliado\Connectivity.cs" />
     <Compile Include="ModelsAmpliado\Images.cs" />
     <Compile Include="ModelsAmpliado\Hardware.cs" />
+    <Compile Include="ModelsAmpliado\Empleats.cs" />
     <Compile Include="ModelsAmpliado\So.cs" />
     <Compile Include="ModelsAmpliado\Telefonos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

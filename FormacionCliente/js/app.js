@@ -139,6 +139,13 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
              }
          }
      })
+     .state('empleats', {
+         url: '/empleats',
+         data: { seguro: true },
+         templateUrl: 'js/Empleats/empleats.html',
+         controller: 'EmpleatController',
+
+     })
 
 });
 

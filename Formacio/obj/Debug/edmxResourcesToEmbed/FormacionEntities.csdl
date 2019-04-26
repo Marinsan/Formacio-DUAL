@@ -29,6 +29,7 @@
       <End Role="Telefonos" EntitySet="Telefonos" />
       <End Role="Images" EntitySet="Images" />
     </AssociationSet>
+    <EntitySet Name="Empleats" EntityType="FormacionModel.Empleats" />
   </EntityContainer>
   <EntityType Name="Clientes">
     <Key>
@@ -212,4 +213,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Empleats">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="primer_cognom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="segon_cognom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>
